@@ -16,19 +16,36 @@
     >
       <ellipse cx="10" cy="90" rx="30" ry="50" fill="hsla(205,95%,52%,0.7)" />
     </svg>
-    <svg id="arrow" class="triangle" height="60px" viewBox="-200 0 300 100">
+    <svg
+      id="arrow"
+      class="triangle"
+      height="100px"
+      width="200px"
+      viewBox="-100 0 100 220"
+    >
       <!-- <polygon points="0 0, 0 100, 75 50" :fill="menu.color" /> -->
-      <polygon points="0 0, 100 50, 0 100" fill="hsl(52,100%,75%)" />
-      <polygon
-        points="0 0, 100 50, 0 100"
-        fill="hsl(52,100%,75%)"
-        transform="translate(-70 25) scale(0.5)"
-      />
-      <polygon
-        points="0 0, 100 50, 0 100"
-        fill="hsl(52,100%,75%)"
-        transform="translate(-140 25) scale(0.5)"
-      />
+      <g fill="hsla(270,100%,60%,0.4)" transform="translate(-100 80)">
+        <polygon points="0 0, 100 50, 0 100" transform="scale(1.3)" />
+        <polygon
+          points="0 0, 100 50, 0 100"
+          transform="translate(-70 40) scale(0.5)"
+        />
+        <polygon
+          points="0 0, 100 50, 0 100"
+          transform="translate(-140 40) scale(0.5)"
+        />
+      </g>
+      <g fill="hsl(52,100%,75%)">
+        <polygon points="0 0, 100 50, 0 100" transform="scale(1.3)" />
+        <polygon
+          points="0 0, 100 50, 0 100"
+          transform="translate(-70 40) scale(0.5)"
+        />
+        <polygon
+          points="0 0, 100 50, 0 100"
+          transform="translate(-140 40) scale(0.5)"
+        />
+      </g>
     </svg>
   </q-card>
 </template>
@@ -96,7 +113,7 @@ export default class Title extends Vue {
 
 <style scoped>
 .titleCard {
-  height: 70vh;
+  height: 500px;
 }
 .backgroundSVG {
   position: absolute;
@@ -124,8 +141,8 @@ export default class Title extends Vue {
 }
 #arrow {
   position: absolute;
-  top: 310px;
-  right: 600px;
+  top: 290px;
+  right: 570px;
   transform: rotate(-60deg);
 }
 </style>
