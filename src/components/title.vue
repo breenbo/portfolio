@@ -16,6 +16,7 @@
     >
       <ellipse cx="10" cy="90" rx="30" ry="50" fill="hsla(205,95%,52%,0.7)" />
     </svg>
+    <!--arrows {{{1-->
     <svg
       id="arrow"
       class="triangle"
@@ -47,6 +48,7 @@
         />
       </g>
     </svg>
+    <!--}}}-->
   </q-card>
 </template>
 
