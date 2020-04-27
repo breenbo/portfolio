@@ -10,7 +10,7 @@
           :to="button.route"
           unelevated
           color="dark"
-          class="q-mx-xs"
+          class="q-mx-xs gt-sm"
           >{{ button.name }}</q-btn
         >
       </q-toolbar>
@@ -18,19 +18,31 @@
 
     <q-page-container>
       <jumboTitle />
-      <cards />
+      <beCards />
     </q-page-container>
+
+    <q-footer class="lt-md row justify-around">
+      <!--TODO : navigate with tabs-->
+      <q-btn
+        v-for="button in buttons"
+        :key="button.name"
+        :to="button.route"
+        unelevated
+        class="q-pa-sm"
+        >{{ button.name }}</q-btn
+      >
+    </q-footer>
   </q-layout>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { Button } from 'components/models';
-import jumboTitle from 'components/title.vue';
-import cards from 'components/card.vue';
+import jumboTitle from 'components/jumbo.vue';
+import beCards from 'components/beCard.vue';
 
 @Component({
-  components: { jumboTitle, cards }
+  components: { jumboTitle, beCards }
 })
 export default class MainLayout extends Vue {
   buttons: Button = {

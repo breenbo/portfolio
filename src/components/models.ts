@@ -13,3 +13,11 @@ export interface Button {
         route:string
     }
 }
+
+export interface CardDatas {
+    cardPicture: string,
+    cardTitle:string,
+    cardSubtitle:string,
+    subCardTitle:string,
+    subCardConclusion:string
+}

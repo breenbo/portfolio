@@ -1,10 +1,52 @@
 <template>
-  <q-card flat square class="bg-primary titleCard">
-    <span id="titleText" class="text-h1 text-white">Think out of the box</span>
-    <span id="subtitleText" class="text-h3 text-white"
+  <q-card
+    flat
+    square
+    class="bg-primary"
+    :class="
+      $q.screen.gt.sm
+        ? 'bigTitleCard'
+        : $q.screen.gt.xs
+        ? 'mediumTitleCard'
+        : 'smallTitleCard'
+    "
+  >
+    <span
+      id="titleText"
+      class="text-white"
+      :class="
+        $q.screen.gt.sm
+          ? 'text-h1 bigTitle'
+          : $q.screen.gt.xs
+          ? 'text-h2 mediumTitle'
+          : 'text-h4 smallTitle'
+      "
+      >Think out of the box</span
+    >
+    <span
+      id="subtitleText"
+      class="text-white text-weight-light"
+      :class="
+        $q.screen.gt.sm
+          ? 'text-h3 bigSubtitle'
+          : $q.screen.gt.xs
+          ? 'text-h4 mediumSubtitle'
+          : 'text-h6 smallSubtitle'
+      "
       >And create <span class="text-italic">your</span> (web)app</span
     >
-    <svg id="boxSVG" class="backgroundSVG" width="250px" viewBox="0 0 40 40">
+    <svg
+      :class="
+        $q.screen.gt.sm
+          ? 'bigBoxSVG'
+          : $q.screen.gt.xs
+          ? 'mediumBoxSVG'
+          : 'smallBoxSVG'
+      "
+      class="backgroundSVG"
+      :width="$q.screen.gt.sm ? '250px' : $q.screen.gt.xs ? '150px' : '80px'"
+      viewBox="0 0 40 40"
+    >
       <rect x="0" y="0" width="40" height="40" fill="hsla(270,100%,70%,0.6)" />
     </svg>
     <svg
@@ -19,9 +61,15 @@
     <!--arrows {{{1-->
     <svg
       id="arrow"
-      class="triangle"
-      height="100px"
-      width="200px"
+      :class="
+        $q.screen.gt.sm
+          ? 'bigArrow'
+          : $q.screen.gt.xs
+          ? 'mediumArrow'
+          : 'smallArrow'
+      "
+      :height="$q.screen.gt.xs ? '100px' : '50px'"
+      :width="$q.screen.gt.xs ? '200px' : '100px'"
       viewBox="-100 0 100 220"
     >
       <!-- <polygon points="0 0, 0 100, 75 50" :fill="menu.color" /> -->
@@ -114,16 +162,30 @@ export default class Title extends Vue {
 </script>
 
 <style scoped>
-.titleCard {
+.bigTitleCard {
   height: 500px;
+}
+.mediumTitleCard {
+  height: 400px;
+}
+.smallTitleCard {
+  height: 250px;
 }
 .backgroundSVG {
   position: absolute;
   z-index: 1;
 }
-#boxSVG {
+.bigBoxSVG {
   top: 80px;
   right: 110px;
+}
+.mediumBoxSVG {
+  top: 80px;
+  right: 35px;
+}
+.smallBoxSVG {
+  top: 80px;
+  right: 20px;
 }
 #ellipse {
   bottom: 0;
@@ -132,19 +194,49 @@ export default class Title extends Vue {
 #titleText {
   position: absolute;
   top: 80px;
+  z-index: 3;
+}
+.bigTitle {
   right: 200px;
-  z-index: 2;
+}
+.mediumTitle {
+  right: 85px;
+}
+.smallTitle {
+  right: 40px;
 }
 #subtitleText {
   position: absolute;
+  z-index: 2;
+}
+.bigSubtitle {
   top: 200px;
   right: 380px;
-  z-index: 2;
+}
+.mediumSubtitle {
+  top: 160px;
+  right: 200px;
+}
+.smallSubtitle {
+  top: 120px;
+  right: 110px;
 }
 #arrow {
   position: absolute;
+  transform: rotate(-60deg);
+}
+.bigArrow {
   top: 290px;
   right: 570px;
-  transform: rotate(-60deg);
+}
+.mediumArrow {
+  top: 240px;
+  right: 320px;
+  z-index: 3;
+}
+.smallArrow {
+  top: 170px;
+  right: 180px;
+  z-index: 3;
 }
 </style>
