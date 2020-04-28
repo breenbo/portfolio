@@ -15,6 +15,7 @@
     <div class="row">
       <q-card class="col-8 q-ml-md" flat>
         <q-img
+          class="imageFond"
           :src="cardDatas.cardPicture"
           :class="cardDatas.bottomLeft ? 'bigRoundBottomCorner' : ''"
         ></q-img>
@@ -103,5 +104,8 @@ export default class Card extends Vue {
 .mediumCardText {
   left: -270px;
   width: 160%;
+}
+.imageFond {
+  max-height: 580px;
 }
 </style>
