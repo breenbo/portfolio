@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <big-card :card-datas="beDatas">
+  <div class="col">
+    <big-card :card-datas="datas">
       <!--slot {{{1-->
       <div class="row q-mt-lg">
         <div
@@ -80,7 +80,7 @@
       <!--}}}-->
     </big-card>
 
-    <small-card :card-datas="beDatas">
+    <small-card :card-datas="datas">
       <!--slot{{{1-->
       <div class="row">
         <div class="col-12 col-sm-6">
@@ -168,9 +168,9 @@
 <script lang="ts">
 //Imports{{{1
 import { Vue, Component } from 'vue-property-decorator';
-import { CardDatas } from 'components/models';
-import smallCard from 'components/smallCard.vue';
-import bigCard from 'components/bigCard.vue';
+import { CardDatas } from 'components/models/models';
+import smallCard from 'components/modules/smallCard.vue';
+import bigCard from 'components/modules/bigCard.vue';
 //}}}
 
 @Component({
@@ -180,13 +180,14 @@ import bigCard from 'components/bigCard.vue';
 })
 export default class Card extends Vue {
   //datas{{{1
-  beDatas: CardDatas = {
+  datas: CardDatas = {
     cardPicture: 'statics/img/colorBe.jpg',
     cardTitle: 'Be',
     cardSubtitle: 'The webdev you need',
     subCardTitle: 'Create web and android apps',
-    subCardConclusion:
-      'Adapted to <span class="text-italic q-mx-xs">your</span> needs'
+    subCardConclusion: 'Adapted to <span class="text-italic">your</span> needs',
+    topRight: true,
+    bottomLeft: false
   };
   //}}}
 }

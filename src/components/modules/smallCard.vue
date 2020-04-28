@@ -20,51 +20,13 @@
 <script lang="ts">
 //Imports{{{1
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { CardDatas } from 'components/models.ts';
+import { CardDatas } from 'components/models/models';
 //}}}
 
-@Component({
-  //filter{{{1
-  //filters: {
-  //niceDate(value: string): string {
-  //return date.formatDate(value, 'Do MMMM');
-  //}
-  //// TIPS : filter must return something
-  //}
-  //}}}
-})
+@Component
 export default class Card extends Vue {
   //props{{{1
   @Prop(Object) readonly cardDatas!: CardDatas;
-  //}}}
-  //datas{{{1
-  //}}}
-  //methods{{{1
-  //submitForm(): void {
-  //// send taskToSubmit to store
-  //this.store.updateTasksAction({
-  //id: this.id,
-  //updates: this.taskToSubmit
-  //});
-  //}
-  //}}}
-  //computed{{{1
-  // get data from store : computed method
-  // don't use getter because no manipulation before get it
-  // use getters to manipulate datas before getting them
-  //get searchField(): string {
-  //return this.store.searchField;
-  //}
-  //set searchField(term: string) {
-  //this.store.setSearchFieldAction(term);
-  //}
-  //}}}
-  //hooks{{{1
-  //mounted() {
-  //somefunction: () => {
-  //return something
-  //}
-  //}
   //}}}
 }
 </script>

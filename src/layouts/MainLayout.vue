@@ -1,8 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header>
+    <q-header reveal>
       <q-toolbar class="bg-secondary">
-        <q-toolbar-title class="q-my-lg">FELB Portfolio</q-toolbar-title>
+        <q-toolbar-title class="q-my-md">FELB Portfolio</q-toolbar-title>
         <q-space />
         <q-btn
           v-for="button in buttons"
@@ -17,11 +17,16 @@
     </q-header>
 
     <q-page-container>
-      <jumboTitle />
-      <beCards />
+      <q-page class="q-mb-md">
+        <jumboTitle />
+        <beCards />
+        <knowCard />
+        <doCard />
+        <shareCard />
+      </q-page>
     </q-page-container>
 
-    <q-footer class="lt-md row justify-around">
+    <q-footer class="lt-md row justify-around" reveal>
       <!--TODO : navigate with tabs-->
       <q-btn
         v-for="button in buttons"
@@ -32,17 +37,28 @@
         >{{ button.name }}</q-btn
       >
     </q-footer>
+    <q-page-scroller
+      id="scroller"
+      position="bottom-right"
+      :scroll-offset="150"
+      :offset="[18, 18]"
+    >
+      <q-btn id="upButton" fab icon="keyboard_arrow_up" color="accent" />
+    </q-page-scroller>
   </q-layout>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { Button } from 'components/models';
+import { Button } from 'components/models/models';
 import jumboTitle from 'components/jumbo.vue';
 import beCards from 'components/beCard.vue';
+import knowCard from 'components/knowCard.vue';
+import doCard from 'components/doCard.vue';
+import shareCard from 'components/shareCard.vue';
 
 @Component({
-  components: { jumboTitle, beCards }
+  components: { jumboTitle, beCards, knowCard, doCard, shareCard }
 })
 export default class MainLayout extends Vue {
   buttons: Button = {
@@ -65,3 +81,12 @@ export default class MainLayout extends Vue {
   };
 }
 </script>
+<style scoped>
+#container {
+  z-index: 1;
+}
+#scroller {
+  position: relative;
+  z-index: 90;
+}
+</style>

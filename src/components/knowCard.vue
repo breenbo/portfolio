@@ -1,0 +1,51 @@
+<template>
+  <div class="col">
+    <big-card :card-datas="datas">
+      <!--slot {{{1-->
+      <!--}}}-->
+    </big-card>
+
+    <small-card :card-datas="datas">
+      <!--slot{{{1-->
+      <!--}}}-->
+    </small-card>
+  </div>
+</template>
+
+<script lang="ts">
+//Imports{{{1
+import { Vue, Component } from 'vue-property-decorator';
+import { CardDatas } from 'components/models/models';
+import smallCard from 'components/modules/smallCard.vue';
+import bigCard from 'components/modules/bigCard.vue';
+//}}}
+
+@Component({
+  //declare components{{{1
+  components: { smallCard, bigCard }
+  //}}}
+})
+export default class Card extends Vue {
+  //datas{{{1
+  datas: CardDatas = {
+    cardPicture: 'statics/img/libraryKnow.jpg',
+    cardTitle: 'Know',
+    cardSubtitle: 'Advanced tools',
+    subCardTitle: 'Use modern and advanced tools',
+    subCardConclusion:
+      'To respect <span class="text-italic">your</span> schedule',
+    topRight: false,
+    bottomLeft: false
+  };
+  //}}}
+}
+</script>
+
+<style scoped>
+#bigSVG {
+  max-width: 480px;
+}
+#smallSVG {
+  max-width: 200px;
+}
+</style>

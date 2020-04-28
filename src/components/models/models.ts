@@ -19,5 +19,7 @@ export interface CardDatas {
     cardTitle:string,
     cardSubtitle:string,
     subCardTitle:string,
-    subCardConclusion:string
+    subCardConclusion:string,
+    topRight:boolean,
+    bottomLeft:boolean
 }
