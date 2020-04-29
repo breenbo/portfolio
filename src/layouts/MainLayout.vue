@@ -26,7 +26,7 @@
       </q-page>
     </q-page-container>
 
-    <q-footer class="lt-md row justify-around" reveal>
+    <q-footer class="lt-md row justify-around">
       <!--TODO : navigate with tabs-->
       <q-btn
         v-for="button in buttons"
@@ -43,7 +43,13 @@
       :scroll-offset="150"
       :offset="[18, 18]"
     >
-      <q-btn id="upButton" fab icon="keyboard_arrow_up" color="accent" />
+      <q-btn
+        id="upButton"
+        fab
+        icon="keyboard_arrow_up"
+        color="accent"
+        to="#top"
+      />
     </q-page-scroller>
   </q-layout>
 </template>
@@ -64,19 +70,19 @@ export default class MainLayout extends Vue {
   buttons: Button = {
     be: {
       name: 'Be',
-      route: '/be'
+      route: '#be'
     },
     know: {
       name: 'Know',
-      route: '/know'
+      route: '#know'
     },
     do: {
       name: 'Do',
-      route: '/do'
+      route: '#do'
     },
     share: {
       name: 'Share',
-      route: '/share'
+      route: '#share'
     }
   };
 }

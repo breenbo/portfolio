@@ -20,7 +20,7 @@ import { Vue, Component } from 'vue-property-decorator';
 import { CardDatas } from 'components/models/models';
 import smallCard from 'components/modules/smallCard.vue';
 import bigCard from 'components/modules/bigCard.vue';
-import logos from 'components/modules/logos.vue';
+import logos from 'components/modules/knowLogos.vue';
 //}}}
 
 @Component({
@@ -35,8 +35,7 @@ export default class Card extends Vue {
     cardTitle: 'Know',
     cardSubtitle: 'Advanced tools',
     subCardTitle: 'Use modern and advanced tools',
-    subCardConclusion:
-      'To respect <span class="text-italic">your</span> schedule',
+    subCardConclusion: 'For <span class="text-italic">your</span> schedule',
     topRight: false,
     bottomLeft: false
   };

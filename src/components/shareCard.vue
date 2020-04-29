@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div class="col">
     <big-card :card-datas="datas">
       <!--slot {{{1-->
+      <shareLogos />
       <!--}}}-->
     </big-card>
 
     <small-card :card-datas="datas">
       <!--slot{{{1-->
+      <shareLogos />
       <!--}}}-->
     </small-card>
   </div>
@@ -18,11 +20,12 @@ import { Vue, Component } from 'vue-property-decorator';
 import { CardDatas } from 'components/models/models';
 import smallCard from 'components/modules/smallCard.vue';
 import bigCard from 'components/modules/bigCard.vue';
+import shareLogos from 'components/modules/shareLogos.vue';
 //}}}
 
 @Component({
   //declare components{{{1
-  components: { smallCard, bigCard }
+  components: { smallCard, bigCard, shareLogos }
   //}}}
 })
 export default class Card extends Vue {
@@ -31,9 +34,8 @@ export default class Card extends Vue {
     cardPicture: 'statics/img/share.jpg',
     cardTitle: 'Share',
     cardSubtitle: 'Networks',
-    subCardTitle: 'Contact or follow me',
-    subCardConclusion:
-      'And start working <span class="text-italic">together</span>',
+    subCardTitle: "Let's start working together",
+    subCardConclusion: '',
     topRight: false,
     bottomLeft: true
   };

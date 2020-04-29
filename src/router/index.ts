@@ -11,7 +11,21 @@ export default route(function ({ Vue }) {
   Vue.use(VueRouter);
 
   const Router = new VueRouter({
-    scrollBehavior: () => ({ x: 0, y: 0 }),
+    //scrollBehavior: () => ({ x: 0, y: 0 }),
+    // allow routing in anchor inside pages
+        scrollBehavior: to => {
+        if (to.hash) {
+            const el = document.querySelector(to.hash)
+            if (el) {
+                window.scrollTo({
+                    top:el.offsetTop,
+                    behavior:'smooth'
+                })
+            }
+        } else {
+            return {x:0,y:0}
+        }
+    },
     routes,
 
     // Leave these as is and change from quasar.conf.js instead!
