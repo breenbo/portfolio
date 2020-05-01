@@ -7,23 +7,16 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +5 src/components/doCard.vue
-badd +2 src/components/beCard.vue
-badd +20 ~/Documents/web/quasar/portfolio/src/components/knowCard.vue
-badd +21 src/layouts/MainLayout.vue
-badd +112 src/components/modules/bigCard.vue
-badd +3 src/components/jumbo.vue
-badd +38 src/components/modules/imageCredits.vue
-badd +11 ~/Documents/web/quasar/portfolio/src/components/shareCard.vue
-badd +18 src/components/modules/smallCard.vue
-badd +34 ~/Documents/web/quasar/portfolio/src/components/modules/shareLogos.vue
-badd +45 ~/Documents/web/quasar/portfolio/src/components/modules/carousel.vue
-badd +15 src/css/quasar.variables.sass
-badd +5 ~/Documents/web/quasar/portfolio/src/todo
+badd +37 ~/Documents/web/quasar/portfolio/src/components/shareCard.vue
+badd +37 ~/Documents/web/quasar/portfolio/src/components/modules/shareLogos.vue
+badd +7 src/components/modules/knowLogos.vue
+badd +31 ~/Documents/web/quasar/portfolio/src/components/models/models.ts
+badd +21 src/router/index.ts
+badd +0 package.json
 argglobal
 %argdel
 $argadd src/App.vue
-edit ~/Documents/web/quasar/portfolio/src/todo
+edit package.json
 set splitbelow splitright
 wincmd t
 set winminheight=0

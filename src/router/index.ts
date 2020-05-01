@@ -15,7 +15,7 @@ export default route(function ({ Vue }) {
     // allow routing in anchor inside pages
         scrollBehavior: to => {
         if (to.hash) {
-            const el = document.querySelector(to.hash)
+            const el = document.querySelector(to.hash) as HTMLElement
             if (el) {
                 window.scrollTo({
                     top:el.offsetTop,

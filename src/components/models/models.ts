@@ -23,3 +23,11 @@ export interface CardDatas {
     topRight:boolean,
     bottomLeft:boolean
 }
+
+export interface KnowLogos {
+    [logoName:string] : {
+        name:string,
+        link:string,
+        svg:string
+    }
+}
