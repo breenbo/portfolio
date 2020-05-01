@@ -12,11 +12,11 @@ badd +37 ~/Documents/web/quasar/portfolio/src/components/modules/shareLogos.vue
 badd +7 src/components/modules/knowLogos.vue
 badd +31 ~/Documents/web/quasar/portfolio/src/components/models/models.ts
 badd +21 src/router/index.ts
-badd +0 package.json
+badd +35 package.json
 argglobal
 %argdel
 $argadd src/App.vue
-edit package.json
+edit ~/Documents/web/quasar/portfolio/src/components/shareCard.vue
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -32,6 +32,8 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
+32
+normal! zo
 let s:l = 1 - ((0 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
