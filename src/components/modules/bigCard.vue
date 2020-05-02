@@ -90,7 +90,7 @@ export default class Card extends Vue {
   position: relative;
   top: 80px;
   left: 50px;
-  z-index: 2;
+  z-index: 10;
   width: 35%;
 }
 .cardText {
@@ -115,7 +115,7 @@ export default class Card extends Vue {
 .doCardText {
   position: relative;
   top: 110px;
-  left: -105%;
-  width: 200%;
+  right: 55%;
+  width: 150%;
 }
 </style>

@@ -1,52 +1,57 @@
 <template>
+  <!-- TODO : classic carousel for small screens -->
   <div class="q-pa-xs">
-    <q-carousel
-      arrows
-      animated
-      infinite
-      navigation
-      navigation-position="top"
-      v-model="slide"
-      :height="$q.screen.gt.md ? '480px' : '380px'"
-    >
-      <q-carousel-slide
-        class="roundedCorner"
-        name="first"
-        img-src="https://cdn.quasar.dev/img/mountains.jpg"
+    <div class="row" v-if="$q.screen.gt.sm">
+      <div
+        class="col roundedCorner imageContainer"
+        :class="$q.screen.gt.md ? 'imageContainerBig' : 'imageContainerMedium'"
       >
-        <div class="absolute-bottom custom-caption">
-          <div :class="fontSize">
-            Portail BN/FOST
+        <q-img class="full-height roundedCorner" :src="slides[slide].image">
+        </q-img>
+      </div>
+      <q-space />
+      <div class="col">
+        <q-carousel
+          arrows
+          animated
+          infinite
+          navigation
+          padding
+          navigation-position="bottom"
+          v-model="slide"
+          control-color="primary"
+        >
+          <q-carousel-slide
+            v-for="slide in slides"
+            :key="slide.id"
+            class="roundedCorner"
+            :name="slide.name"
+          >
+            <div class="q-mt-xl q-ma-md">
+              <div :class="fontSize" class="text-center">
+                {{ slide.title }}
+              </div>
+              <div class="text-body1 q-mt-lg" v-html="slide.text"></div>
+            </div>
+          </q-carousel-slide>
+        </q-carousel>
+      </div>
+    </div>
+    <div v-else>
+      <q-carousel arrows animated infinite v-model="slide">
+        <q-carousel-slide
+          v-for="slide in slides"
+          :key="slide.id"
+          :name="slide.name"
+          :img-src="slide.image"
+        >
+          <div class="absolute-bottom custom-caption q-pa-md">
+            <div class="text-h6">{{ slide.title }}</div>
+            <div class="text-caption" v-html="slide.text"></div>
           </div>
-          <div class="text-subtitle1">
-            Complete Web App made with Vue and Vuetify. Backend by excel sheet,
-            works surprisingly well.
-          </div>
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide
-        name="second"
-        img-src="https://cdn.quasar.dev/img/parallax1.jpg"
-      >
-        <div class="absolute-bottom custom-caption">
-          <div :class="fontSize">Tribute to Elon Musk</div>
-          <div class="text-subtitle1">
-            Experimentation with verticals containers and sliders.
-          </div>
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide
-        name="third"
-        img-src="https://cdn.quasar.dev/img/parallax1.jpg"
-      >
-        <div class="absolute-bottom custom-caption">
-          <div :class="fontSize">Awesome ToDo App</div>
-          <div class="text-subtitle1">
-            ToDo App made with Vue and Quasar. Backend by Firebase.
-          </div>
-        </div>
-      </q-carousel-slide>
-    </q-carousel>
+        </q-carousel-slide>
+      </q-carousel>
+    </div>
   </div>
 </template>
 
@@ -59,6 +64,30 @@ import { Vue, Component } from 'vue-property-decorator';
 export default class Carousel extends Vue {
   //datas{{{1
   slide = 'first';
+  slides = {
+    first: {
+      name: 'first',
+      title: 'Portail BN',
+      text:
+        ' Complete Web App made with Vue and Vuetify. Several pages, with specific content.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
+      image: 'https://cdn.quasar.dev/img/mountains.jpg',
+      link: ''
+    },
+    second: {
+      name: 'second',
+      title: 'Tribute to Elon Musk',
+      text: 'Experimentation with verticals containers and sliders.',
+      image: 'https://cdn.quasar.dev/img/parallax1.jpg',
+      link: ''
+    },
+    third: {
+      name: 'third',
+      title: 'THIRD',
+      text: '',
+      image: '',
+      link: ''
+    }
+  };
   //}}}
   //computed{{{1
   get fontSize(): string {
@@ -70,12 +99,26 @@ export default class Carousel extends Vue {
 
 <style scoped>
 .custom-caption {
-  text-align: center;
-  padding: 12px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.3);
+  color: hsl(0, 0%, 90%);
 }
 .roundedCorner {
-  border-radius: 4px;
+  border-radius: 8px;
+}
+.imageContainer {
+  position: absolute;
+  left: -100%;
+  top: -60px;
+  z-index: 2;
+  width: 95%;
+}
+.imageContainerBig {
+  height: 170%;
+}
+.imageContainerMedium {
+  height: 140%;
+}
+.q-carousel {
+  height: 350px;
 }
 </style>
