@@ -31,3 +31,12 @@ export interface KnowLogos {
         svg:string
     }
 }
+export interface DoProject {
+    [projectName:string] : {
+        name: string,
+      title: string,
+      text: string,
+      image: string,
+      link: string
+    }
+}

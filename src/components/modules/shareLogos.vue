@@ -8,6 +8,7 @@
     >
       <div class="col-4" v-for="logo in shareLogos" :key="logo.id">
         <q-btn
+          v-if="logo.svg"
           class="col"
           :class="$q.screen.gt.md ? 'bigBouton' : 'smallBouton'"
           fab

@@ -46,6 +46,7 @@ export default class Card extends Vue {
 }
 .headerImage {
   max-height: 320px;
+  min-height: 200px;
 }
 .margin-top {
   margin-top: -48px;

@@ -7,16 +7,23 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +4 src/components/doCard.vue
-badd +4 src/layouts/MainLayout.vue
-badd +5 ~/Documents/web/quasar/portfolio/src/components/shareCard.vue
-badd +37 ~/Documents/web/quasar/portfolio/src/components/modules/shareLogos.vue
-badd +96 ~/Documents/web/quasar/portfolio/src/components/modules/carousel.vue
+badd +3 src/components/doCard.vue
+badd +62 src/layouts/MainLayout.vue
+badd +1 ~/Documents/web/quasar/portfolio/src/components/shareCard.vue
+badd +1 ~/Documents/web/quasar/portfolio/src/components/modules/shareLogos.vue
+badd +1 ~/Documents/web/quasar/portfolio/src/components/modules/carousel.vue
 badd +7 src/components/modules/knowLogos.vue
+badd +1 src/components/modules/bigCard.vue
+badd +1 src/components/modules/imageCredits.vue
+badd +2 src/components/beCard.vue
+badd +8 src/components/modules/smallCard.vue
+badd +1 src/todo
+badd +110 quasar.conf.js
+badd +1 src/App.vue
 argglobal
 %argdel
 $argadd src/App.vue
-edit ~/Documents/web/quasar/portfolio/src/components/modules/carousel.vue
+edit src/components/modules/knowLogos.vue
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -32,11 +39,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 42 - ((41 * winheight(0) + 24) / 49)
+let s:l = 33 - ((32 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-42
+33
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -49,8 +56,6 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-let g:this_session = v:this_session
-let g:this_obsession = v:this_session
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

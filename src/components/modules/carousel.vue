@@ -1,13 +1,24 @@
 <template>
   <!-- TODO : classic carousel for small screens -->
   <div class="q-pa-xs">
+    <!-- bigCarousel{{{1 -->
     <div class="row" v-if="$q.screen.gt.sm">
       <div
         class="col roundedCorner imageContainer"
         :class="$q.screen.gt.md ? 'imageContainerBig' : 'imageContainerMedium'"
       >
-        <q-img class="full-height roundedCorner" :src="slides[slide].image">
+        <q-img
+          class="full-height roundedCorner"
+          :src="slides[slide].image"
+          v-if="slides[slide].image"
+        >
         </q-img>
+        <div
+          v-else
+          class="q-pt-xl bg-primary full-height text-grey-1 roundedCorner text-center text-h4"
+        >
+          No image for "{{ slides[slide].title }}"
+        </div>
       </div>
       <q-space />
       <div class="col">
@@ -24,7 +35,7 @@
           <q-carousel-slide
             v-for="slide in slides"
             :key="slide.id"
-            class="roundedCorner"
+            class="rounded-borders"
             :name="slide.name"
           >
             <div class="q-mt-xl q-ma-md">
@@ -37,8 +48,16 @@
         </q-carousel>
       </div>
     </div>
+    <!-- }}} -->
+    <!-- smallCarousel{{{1 -->
     <div v-else>
-      <q-carousel arrows animated infinite v-model="slide">
+      <q-carousel
+        arrows
+        animated
+        infinite
+        v-model="slide"
+        class="rounded-borders"
+      >
         <q-carousel-slide
           v-for="slide in slides"
           :key="slide.id"
@@ -52,19 +71,21 @@
         </q-carousel-slide>
       </q-carousel>
     </div>
+    <!-- }}} -->
   </div>
 </template>
 
 <script lang="ts">
 //Imports{{{1
 import { Vue, Component } from 'vue-property-decorator';
+import { DoProject } from 'components/models/models';
 //}}}
 
 @Component
 export default class Carousel extends Vue {
   //datas{{{1
   slide = 'first';
-  slides = {
+  slides: DoProject = {
     first: {
       name: 'first',
       title: 'Portail BN',
@@ -82,8 +103,25 @@ export default class Carousel extends Vue {
     },
     third: {
       name: 'third',
-      title: 'THIRD',
-      text: '',
+      title: 'Awesome ToDo',
+      text:
+        'Todo web and android single page app, made with Vue and Quasar. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
+      image: '',
+      link: ''
+    },
+    fourth: {
+      name: 'fourth',
+      title: 'Vue-Gram',
+      text:
+        'Little chat made with Vue and Vuetify. Backend by Firebase. <br/> Different users.',
+      image: '',
+      link: ''
+    },
+    fifth: {
+      name: 'fifth',
+      title: 'Meal App',
+      text:
+        'Cooking app made with Vue and Vuetify, based on an API reached with axios. Backend by Firebase.<br/> Different users.',
       image: '',
       link: ''
     }
@@ -107,7 +145,7 @@ export default class Carousel extends Vue {
 }
 .imageContainer {
   position: absolute;
-  left: -100%;
+  left: -98%;
   top: -60px;
   z-index: 2;
   width: 95%;

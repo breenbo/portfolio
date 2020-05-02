@@ -1,60 +1,82 @@
 <template>
-  <div class="cardContainer gt-sm q-mx-auto">
-    <!-- cardtitle{{{1 -->
-    <div class="cardTitle bg-white text-grey-8 q-px-lg q-pb-md roundCorner">
-      <div :class="$q.screen.gt.md ? 'text-h2' : 'text-h3'">
-        {{ cardDatas.cardTitle }}
-      </div>
-      <div :class="$q.screen.gt.md ? 'text-h5' : 'text-h6'">
-        {{ cardDatas.cardSubtitle }}
-      </div>
-    </div>
-    <!-- }}} -->
-    <div class="row">
-      <!-- show background image if not do card -->
-      <q-card class="col-8 q-ml-md" flat v-if="cardDatas.cardTitle !== 'Do'">
-        <q-img
-          class="imageFond"
-          :src="cardDatas.cardPicture"
-          :class="cardDatas.bottomLeft ? 'bigRoundBottomCorner' : ''"
-        ></q-img>
-      </q-card>
-      <q-card
-        v-else
-        class="col-8 q-ml-md"
-        flat
-        :class="$q.screen.gt.md ? 'doBackground' : 'doMediumBackground'"
-      >
-      </q-card>
-      <!-- change size and position if doCard to show the carousel -->
-      <div class="col">
-        <div
-          class="roundCorner bg-grey-1 text-grey-8"
-          :class="[
-            cardDatas.topRight ? 'bigRoundTopCorner' : '',
-            cardDatas.cardTitle === 'Do' ? 'doCardText' : 'cardText'
-          ]"
-        >
-          <!--change font size depending on screen size, only for other card than Do -->
-          <div
-            v-if="cardDatas.cardTitle !== 'Do'"
-            class="q-pl-lg"
-            :class="$q.screen.gt.md ? 'text-h4 q-pt-xl' : 'text-h5 q-pt-md'"
-          >
-            {{ cardDatas.subCardTitle }}
+  <q-intersection
+    class="gt-sm q-mx-auto"
+    :class="$q.screen.gt.md ? 'bigCardContainer' : 'mediumCardContainer'"
+    :treshold="0.75"
+    once
+  >
+    <transition
+      appear
+      :enter-active-class="
+        cardDatas.cardTitle === 'Be'
+          ? 'animated fadeInUp waitBeCard'
+          : 'animated fadeInUp '
+      "
+    >
+      <div>
+        <!-- cardtitle{{{1 -->
+        <div class="cardTitle bg-white text-grey-8 q-px-lg q-pb-md roundCorner">
+          <div :class="$q.screen.gt.md ? 'text-h2' : 'text-h3'">
+            {{ cardDatas.cardTitle }}
           </div>
-          <slot></slot>
-          <div
+          <div :class="$q.screen.gt.md ? 'text-h5' : 'text-h6'">
+            {{ cardDatas.cardSubtitle }}
+          </div>
+        </div>
+        <!-- }}} -->
+        <div class="row">
+          <!-- show background image if not do card -->
+          <q-card
+            class="col-8 q-ml-md"
+            flat
             v-if="cardDatas.cardTitle !== 'Do'"
-            class="row q-pl-lg q-pt-xs"
-            :class="$q.screen.gt.md ? 'text-h4 q-py-md' : 'text-h5 q-pb-sm'"
           >
-            <span v-html="cardDatas.subCardConclusion"></span>
+            <q-img
+              :src="cardDatas.cardPicture"
+              :class="[
+                cardDatas.bottomLeft ? 'bigRoundBottomCorner' : '',
+                $q.screen.gt.md ? 'imageFondBig' : 'imageFondMedium'
+              ]"
+            ></q-img>
+          </q-card>
+          <q-card
+            v-else
+            class="col-8 q-ml-md"
+            flat
+            :class="$q.screen.gt.md ? 'doBackground' : 'doMediumBackground'"
+          >
+          </q-card>
+          <!-- change size and position if doCard to show the carousel -->
+          <div class="col">
+            <div
+              class="roundCorner bg-grey-1 text-grey-8"
+              :class="[
+                cardDatas.topRight ? 'bigRoundTopCorner' : '',
+                cardDatas.cardTitle === 'Do' ? 'doCardText' : 'cardText'
+              ]"
+            >
+              <!--change font size depending on screen size, only for other card than Do -->
+              <div
+                v-if="cardDatas.cardTitle !== 'Do'"
+                class="q-pl-lg"
+                :class="$q.screen.gt.md ? 'text-h4 q-pt-xl' : 'text-h5 q-pt-md'"
+              >
+                {{ cardDatas.subCardTitle }}
+              </div>
+              <slot></slot>
+              <div
+                v-if="cardDatas.cardTitle !== 'Do'"
+                class="row q-pl-lg q-pt-xs"
+                :class="$q.screen.gt.md ? 'text-h4 q-py-md' : 'text-h5 q-pb-sm'"
+              >
+                <span v-html="cardDatas.subCardConclusion"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </transition>
+  </q-intersection>
 </template>
 
 <script lang="ts">
@@ -74,8 +96,13 @@ export default class Card extends Vue {
 </script>
 
 <style scoped>
-.cardContainer {
+.bigCardContainer {
   max-width: 1600px;
+  min-height: 700px;
+}
+.mediumCardContainer {
+  max-width: 1600px;
+  min-height: 500px;
 }
 .roundCorner {
   border-radius: 8px !important;
@@ -101,8 +128,11 @@ export default class Card extends Vue {
   /*left: -26vw;*/
   z-index: 2;
 }
-.imageFond {
-  max-height: 580px;
+.imageFondBig {
+  height: 580px;
+}
+.imageFondMedium {
+  height: 400px;
 }
 .doBackground {
   height: 620px;
@@ -117,5 +147,11 @@ export default class Card extends Vue {
   top: 110px;
   right: 55%;
   width: 150%;
+}
+.fadeInUp {
+  animation-duration: 1s;
+}
+.waitBeCard {
+  animation-delay: 2s;
 }
 </style>

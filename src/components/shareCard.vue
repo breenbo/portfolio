@@ -34,7 +34,7 @@ export default class Card extends Vue {
     cardPicture: 'statics/img/share.jpg',
     cardTitle: 'Share',
     cardSubtitle: 'Networks',
-    subCardTitle: "Let's start working together",
+    subCardTitle: "Let's work together",
     subCardConclusion: '',
     topRight: false,
     bottomLeft: true

@@ -181,7 +181,7 @@ import bigCard from 'components/modules/bigCard.vue';
 export default class Card extends Vue {
   //datas{{{1
   datas: CardDatas = {
-    cardPicture: 'statics/img/colorBe.jpg',
+    cardPicture: 'statics/img/sproutBeSmall.jpg',
     cardTitle: 'Be',
     cardSubtitle: 'The webdev you need',
     subCardTitle: 'Create web and android apps',
