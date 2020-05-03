@@ -37,6 +37,7 @@ export interface DoProject {
       title: string,
       text: string,
       image: string,
-      link: string
+      link: string,
+      video:string
     }
 }

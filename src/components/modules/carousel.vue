@@ -2,15 +2,28 @@
   <!-- ToDo : classic carousel for small screens -->
   <div class="q-pa-xs">
     <!-- bigCarousel{{{1 -->
+    <!-- TODO : add link to projects pages -->
     <div class="row" v-if="$q.screen.gt.sm">
       <div
         class="col roundedCorner imageContainer"
         :class="$q.screen.gt.md ? 'imageContainerBig' : 'imageContainerMedium'"
       >
+        <q-media-player
+          v-if="slides[slide].video"
+          type="video"
+          :source="slides[slide].video"
+          :poster="slides[slide].image"
+          :show-big-play-button="true"
+          radius="8px"
+          big-play-button-color="primary"
+          class="full-height"
+          dense
+        >
+        </q-media-player>
         <q-img
           class="full-height roundedCorner"
           :src="slides[slide].image"
-          v-if="slides[slide].image"
+          v-else-if="slides[slide].image"
         >
         </q-img>
         <div
@@ -51,6 +64,7 @@
     <!-- }}} -->
     <!-- smallCarousel{{{1 -->
     <div v-else>
+      <!-- TODO : open video in a modal on click on image ? -->
       <q-carousel
         arrows
         animated
@@ -92,14 +106,16 @@ export default class Carousel extends Vue {
       text:
         ' Complete Web App made with Vue and Vuetify. Several pages, with specific content.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
       image: 'https://cdn.quasar.dev/img/mountains.jpg',
-      link: ''
+      link: '',
+      video: ''
     },
     second: {
       name: 'second',
       title: 'Tribute to Elon Musk',
       text: 'Experimentation with verticals containers and sliders.',
-      image: 'https://cdn.quasar.dev/img/parallax1.jpg',
-      link: ''
+      image: 'statics/img/projects/elonTributeScreen.png',
+      link: 'https://breenbo.github.io/FCC_tribute/',
+      video: 'statics/videos/elonTributeVideo.webm'
     },
     third: {
       name: 'third',
@@ -107,7 +123,8 @@ export default class Carousel extends Vue {
       text:
         'Todo web and android single page app, made with Vue and Quasar. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
       image: '',
-      link: ''
+      link: '',
+      video: ''
     },
     fourth: {
       name: 'fourth',
@@ -115,7 +132,8 @@ export default class Carousel extends Vue {
       text:
         'Little chat made with Vue and Vuetify. Backend by Firebase. <br/> Different users.',
       image: '',
-      link: ''
+      link: '',
+      video: ''
     },
     fifth: {
       name: 'fifth',
@@ -123,7 +141,8 @@ export default class Carousel extends Vue {
       text:
         'Cooking app made with Vue and Vuetify, based on an API reached with axios. Backend by Firebase.<br/> Different users.',
       image: '',
-      link: ''
+      link: '',
+      video: ''
     }
   };
   //}}}
