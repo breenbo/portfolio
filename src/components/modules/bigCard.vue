@@ -5,6 +5,7 @@
     :treshold="0.75"
     once
   >
+    <!-- add some wait for the be card -->
     <transition
       appear
       :enter-active-class="
@@ -13,6 +14,7 @@
           : 'animated fadeInUp '
       "
     >
+      <!-- div to use transition instead of transition group -->
       <div>
         <!-- cardtitle{{{1 -->
         <div class="cardTitle bg-white text-grey-8 q-px-lg q-pb-md roundCorner">
@@ -25,6 +27,7 @@
         </div>
         <!-- }}} -->
         <div class="row">
+          <!-- card image background{{{1 -->
           <!-- show background image if not do card -->
           <q-card
             class="col-8 q-ml-md"
@@ -46,7 +49,9 @@
             :class="$q.screen.gt.md ? 'doBackground' : 'doMediumBackground'"
           >
           </q-card>
+          <!-- }}} -->
           <!-- change size and position if doCard to show the carousel -->
+          <!-- card text {{{1 -->
           <div class="col">
             <div
               class="roundCorner bg-grey-1 text-grey-8"
@@ -73,6 +78,7 @@
               </div>
             </div>
           </div>
+          <!-- }}} -->
         </div>
       </div>
     </transition>

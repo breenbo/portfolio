@@ -1,5 +1,5 @@
 <template>
-  <!-- TODO : classic carousel for small screens -->
+  <!-- ToDo : classic carousel for small screens -->
   <div class="q-pa-xs">
     <!-- bigCarousel{{{1 -->
     <div class="row" v-if="$q.screen.gt.sm">

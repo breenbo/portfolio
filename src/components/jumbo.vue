@@ -68,11 +68,20 @@
     <svg
       id="ellipse"
       class="backgroundSVG"
-      width="330px"
-      height="440px"
+      :width="$q.screen.gt.xs ? '330px' : '150px'"
+      :height="$q.screen.gt.xs ? '440px' : '170px'"
       viewBox="10 2 50 100"
     >
       <ellipse cx="10" cy="90" rx="30" ry="50" fill="hsla(205,95%,52%,0.7)" />
+      <ellipse
+        v-if="$q.screen.gt.md"
+        cx="10"
+        cy="90"
+        rx="30"
+        ry="50"
+        fill="hsla(205,95%,52%,0.1)"
+        transform="scale(1.8) translate(-10 -38)"
+      />
     </svg>
     <!--arrows {{{1-->
     <transition appear enter-active-class="animated fadeInUp arrowAnimation">

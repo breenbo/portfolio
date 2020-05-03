@@ -67,30 +67,24 @@
       </q-page>
     </q-page-container>
 
-    <q-footer class="lt-md row justify-around">
-      <!--TODO : navigate with tabs-->
-      <q-btn
-        v-for="button in buttons"
-        :key="button.name"
-        :to="button.route"
-        unelevated
-        class="q-pa-sm"
-        >{{ button.name }}</q-btn
-      >
-    </q-footer>
+    <!--<q-footer class="lt-md row justify-around">-->
+    <!--  <!-1-ToDo : navigate with tabs-1->-->
+    <!--  <q-btn-->
+    <!--    v-for="button in buttons"-->
+    <!--    :key="button.name"-->
+    <!--    :to="button.route"-->
+    <!--    unelevated-->
+    <!--    class="q-pa-sm"-->
+    <!--    >{{ button.name }}</q-btn-->
+    <!--  >-->
+    <!--</q-footer>-->
     <q-page-scroller
       id="scroller"
       position="bottom-right"
       :scroll-offset="150"
       :offset="[18, 18]"
     >
-      <q-btn
-        id="upButton"
-        fab
-        icon="keyboard_arrow_up"
-        color="accent"
-        to="#top"
-      />
+      <q-btn id="upButton" fab icon="keyboard_arrow_up" color="accent" />
     </q-page-scroller>
   </q-layout>
 </template>
