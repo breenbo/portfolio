@@ -7,25 +7,13 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +5 src/components/doCard.vue
-badd +1 src/layouts/MainLayout.vue
-badd +1 ~/Documents/web/quasar/portfolio/src/components/shareCard.vue
-badd +1 ~/Documents/web/quasar/portfolio/src/components/modules/shareLogos.vue
-badd +112 ~/Documents/web/quasar/portfolio/src/components/modules/carousel.vue
-badd +33 src/components/modules/knowLogos.vue
-badd +4 src/components/modules/bigCard.vue
-badd +1 src/components/modules/imageCredits.vue
-badd +2 src/components/beCard.vue
-badd +8 src/components/modules/smallCard.vue
-badd +1 src/todo
-badd +63 quasar.conf.js
-badd +1 src/App.vue
-badd +1 src/components/jumbo.vue
-badd +41 src/components/models/models.ts
+badd +45 src/components/modules/shareLogos.vue
+badd +32 src/components/doCard.vue
+badd +138 src/components/modules/carousel.vue
 argglobal
 %argdel
 $argadd src/App.vue
-edit ~/Documents/web/quasar/portfolio/src/components/modules/carousel.vue
+edit src/components/modules/carousel.vue
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -43,18 +31,18 @@ setlocal fdn=20
 setlocal fen
 4
 normal! zo
-let s:l = 17 - ((16 * winheight(0) + 24) / 49)
+let s:l = 35 - ((9 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 011|
+35
+normal! 09|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=filnxtToOF
+set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=I
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)

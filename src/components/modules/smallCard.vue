@@ -42,39 +42,39 @@
 </template>
 
 <script lang="ts">
-//Imports{{{1
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { CardDatas } from 'components/models/models';
-//}}}
-
-@Component
-export default class Card extends Vue {
-  //props{{{1
-  @Prop(Object) readonly cardDatas!: CardDatas;
+  //Imports{{{1
+  import { Vue, Component, Prop } from 'vue-property-decorator';
+  import { CardDatas } from 'components/models/models';
   //}}}
-}
+
+  @Component
+  export default class SmallCard extends Vue {
+    //props{{{1
+    @Prop(Object) readonly cardDatas!: CardDatas;
+    //}}}
+  }
 </script>
 
 <style scoped>
-.carte {
-  position: relative;
-  top: -100px;
-  max-width: 600px;
-}
-.headerImage {
-  max-height: 320px;
-  min-height: 250px;
-}
-.margin-top {
-  margin-top: -48px;
-}
-.smallCardContainer {
-  min-height: 650px;
-}
-.fadeInUp {
-  animation-duration: 1.2s;
-}
-.waitBeCard {
-  animation-delay: 1.6s;
-}
+  .carte {
+    position: relative;
+    top: -100px;
+    max-width: 600px;
+  }
+  .headerImage {
+    max-height: 320px;
+    min-height: 250px;
+  }
+  .margin-top {
+    margin-top: -48px;
+  }
+  .smallCardContainer {
+    min-height: 650px;
+  }
+  .fadeInUp {
+    animation-duration: 1.2s;
+  }
+  .waitBeCard {
+    animation-delay: 1.6s;
+  }
 </style>

@@ -33,7 +33,7 @@ export interface KnowLogos {
 }
 export interface DoProject {
     [projectName:string] : {
-        name: string,
+      name: string,
       title: string,
       text: string,
       image: string,
