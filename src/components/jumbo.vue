@@ -212,7 +212,7 @@
     z-index: 3;
   }
   .smallArrow {
-    top: 150px;
+    top: 155px;
     right: 180px;
     z-index: 3;
   }
@@ -229,7 +229,7 @@
     animation-delay: 600ms;
   }
   .arrowAnimation {
-    animation-delay: 600ms;
+    animation-delay: 800ms;
     animation-duration: 600ms;
   }
   #test {

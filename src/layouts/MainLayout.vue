@@ -93,15 +93,19 @@
   import { Vue, Component } from 'vue-property-decorator';
   import { Button } from 'components/models/models';
   import jumboTitle from 'components/jumbo.vue';
-  import beCards from 'components/beCard.vue';
-  const knowCard = () => import('components/knowCard.vue');
-  const doCard = () => import('components/doCard.vue');
-  const shareCard = () => import('components/shareCard.vue');
+  //import beCards from 'components/beCard.vue';
+  //import knowCard from 'components/knowCard.vue';
   //import doCard from 'components/doCard.vue';
   //import shareCard from 'components/shareCard.vue';
 
   @Component({
-    components: { jumboTitle, beCards, knowCard, doCard, shareCard }
+    components: {
+      jumboTitle,
+      beCards: () => import('components/beCard.vue'),
+      knowCard: () => import('components/knowCard.vue'),
+      doCard: () => import('components/doCard.vue'),
+      shareCard: () => import('components/shareCard.vue')
+    }
   })
   export default class MainLayout extends Vue {
     buttons: Button = {

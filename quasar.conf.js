@@ -73,12 +73,12 @@ module.exports = configure(function (ctx) {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // rtl: false, // https://quasar.dev/options/rtl-support
-      // showProgress: false,
-      // gzip: true,
-      // analyze: true,
+        // showProgress: false,
+       // gzip: true,
+       // analyze: true,
 
         // Options below are automatically set depending on the env, set them if you want to override
-        preloadChunks: true,
+        //preloadChunks: true,
       // extractCSS: false,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack

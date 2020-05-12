@@ -172,13 +172,16 @@
   //Imports{{{1
   import { Vue, Component } from 'vue-property-decorator';
   import { CardDatas } from 'components/models/models';
-  import smallCard from 'components/modules/smallCard.vue';
-  import bigCard from 'components/modules/bigCard.vue';
+  //import smallCard from 'components/modules/smallCard.vue';
+  //import bigCard from 'components/modules/bigCard.vue';
   //}}}
 
   @Component({
     //declare components{{{1
-    components: { smallCard, bigCard }
+    components: {
+      smallCard: () => import('components/modules/smallCard.vue'),
+      bigCard: () => import('components/modules/bigCard.vue')
+    }
     //}}}
   })
   export default class BeCard extends Vue {

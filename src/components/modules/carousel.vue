@@ -4,7 +4,7 @@
     <!-- bigCarousel{{{1 -->
     <div class="row" v-if="$q.screen.gt.sm">
       <div
-        class="col roundedCorner imageContainer bg-primary"
+        class="col roundedCorner imageContainer"
         :class="$q.screen.gt.md ? 'imageContainerBig' : 'imageContainerMedium'"
       >
         <div class="row items-center full-height" v-if="slides[slide].video">
@@ -16,6 +16,9 @@
               :show-big-play-button="true"
               background-color="primary"
               hide-volume-slider="hideVolume"
+              :big-play-button-color="
+                slides[slide].name == 'first' ? 'white ' : ' primary'
+              "
               dense
             >
             </q-media-player>
@@ -170,6 +173,7 @@
     top: -60px;
     z-index: 2;
     width: 95%;
+    background-color: hsl(256, 38%, 80%);
   }
   .imageContainerBig {
     height: 170%;

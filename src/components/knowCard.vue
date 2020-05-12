@@ -18,14 +18,18 @@
   //Imports{{{1
   import { Vue, Component } from 'vue-property-decorator';
   import { CardDatas } from 'components/models/models';
-  import smallCard from 'components/modules/smallCard.vue';
-  import bigCard from 'components/modules/bigCard.vue';
-  import logos from 'components/modules/knowLogos.vue';
+  //import smallCard from 'components/modules/smallCard.vue';
+  //import bigCard from 'components/modules/bigCard.vue';
+  //import logos from 'components/modules/knowLogos.vue';
   //}}}
 
   @Component({
     //declare components{{{1
-    components: { smallCard, bigCard, logos }
+    components: {
+      smallCard: () => import('components/modules/smallCard.vue'),
+      bigCard: () => import('components/modules/bigCard.vue'),
+      logos: () => import('components/modules/knowLogos.vue')
+    }
     //}}}
   })
   export default class Card extends Vue {
