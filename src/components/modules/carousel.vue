@@ -107,7 +107,7 @@
         title: 'Portail BN',
         text:
           ' Complete Web App made with Vue and Vuetify. Several pages, with specific content, theme color and animated svg for menu.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
-        image: 'statics/img/projects/portailScreen.jpg',
+        image: 'statics/img/projects/portailScreen.webp',
         link: '',
         video: 'statics/videos/portail.webm'
       },
@@ -115,7 +115,7 @@
         name: 'second',
         title: 'Tribute to Elon Musk',
         text: 'Experimentation with verticals containers and sliders.',
-        image: 'statics/img/projects/elonScreen.jpg',
+        image: 'statics/img/projects/elonScreen.webp',
         link: 'https://breenbo.github.io/FCC_tribute/',
         video: 'statics/videos/elonTributeVideo.webm'
       },
@@ -124,7 +124,7 @@
         title: 'Awesome ToDo',
         text:
           'Todo web and android single page app, made with Vue and Quasar. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
-        image: 'statics/img/projects/todoScreen.jpg',
+        image: 'statics/img/projects/todoScreen.webp',
         link: '',
         video: 'statics/videos/todoApp.webm'
       },
@@ -133,7 +133,7 @@
         title: 'Meal App',
         text:
           'Cooking app made with Vue and Vuetify, based on an API reached with axios. Backend by Firebase.',
-        image: 'statics/img/projects/mealScreen.jpg',
+        image: 'statics/img/projects/mealScreen.webp',
         link: '',
         video: 'statics/videos/mealApp.webm'
       }
