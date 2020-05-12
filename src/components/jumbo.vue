@@ -217,20 +217,20 @@
     z-index: 3;
   }
   .fadeInRight {
-    animation-duration: 110ms;
+    animation-duration: 550ms;
   }
   .fadeIn {
-    animation-duration: 110ms;
+    animation-duration: 550ms;
   }
   .boxAnimation {
-    animation-delay: 110ms;
+    animation-delay: 550ms;
   }
   .subtitleAnimation {
-    animation-delay: 150ms;
+    animation-delay: 600ms;
   }
   .arrowAnimation {
-    animation-delay: 150ms;
-    animation-duration: 150ms;
+    animation-delay: 600ms;
+    animation-duration: 600ms;
   }
   #test {
     background-color: red;

@@ -77,8 +77,8 @@ module.exports = configure(function (ctx) {
       // gzip: true,
       // analyze: true,
 
-      // Options below are automatically set depending on the env, set them if you want to override
-      // preloadChunks: false,
+        // Options below are automatically set depending on the env, set them if you want to override
+        preloadChunks: true,
       // extractCSS: false,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
