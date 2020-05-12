@@ -184,7 +184,7 @@
   export default class BeCard extends Vue {
     //datas{{{1
     datas: CardDatas = {
-      cardPicture: 'statics/img/sproutBeSmall.jpg',
+      cardPicture: 'statics/img/sproutBeSmall.webp',
       cardTitle: 'Be',
       cardSubtitle: 'The webdev you need',
       subCardTitle: 'Create web and android apps',
