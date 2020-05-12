@@ -130,109 +130,109 @@
 </template>
 
 <script lang="ts">
-//Imports{{{1
-import { Vue, Component } from 'vue-property-decorator';
-//}}}
+  //Imports{{{1
+  import { Vue, Component } from 'vue-property-decorator';
+  //}}}
 
-@Component
-export default class Title extends Vue {}
+  @Component
+  export default class Title extends Vue {}
 </script>
 
 <style scoped>
-.bigTitleCard {
-  height: 500px;
-}
-.mediumTitleCard {
-  height: 400px;
-}
-.smallTitleCard {
-  height: 250px;
-}
-.backgroundSVG {
-  position: absolute;
-  z-index: 1;
-}
-.bigBoxSVG {
-  top: 80px;
-  right: 110px;
-}
-.mediumBoxSVG {
-  top: 80px;
-  right: 35px;
-}
-.smallBoxSVG {
-  top: 80px;
-  right: 20px;
-}
-#ellipse {
-  bottom: 0;
-  left: 0;
-}
-#titleText {
-  position: absolute;
-  top: 80px;
-  z-index: 3;
-}
-.bigTitle {
-  right: 200px;
-}
-.mediumTitle {
-  right: 85px;
-}
-.smallTitle {
-  right: 40px;
-}
-#subtitleText {
-  position: absolute;
-  z-index: 2;
-}
-.bigSubtitle {
-  top: 200px;
-  right: 380px;
-}
-.mediumSubtitle {
-  top: 160px;
-  right: 200px;
-}
-.smallSubtitle {
-  top: 120px;
-  right: 110px;
-}
-.arrow {
-  position: absolute;
-  /*transform: rotate(-60deg);*/
-}
-.bigArrow {
-  top: 260px;
-  right: 620px;
-}
-.mediumArrow {
-  top: 210px;
-  right: 370px;
-  z-index: 3;
-}
-.smallArrow {
-  top: 150px;
-  right: 180px;
-  z-index: 3;
-}
-.fadeInRight {
-  animation-duration: 1s;
-}
-.fadeIn {
-  animation-duration: 1s;
-}
-.boxAnimation {
-  animation-delay: 1s;
-}
-.subtitleAnimation {
-  animation-delay: 1.5s;
-}
-.arrowAnimation {
-  animation-delay: 1.5s;
-  animation-duration: 1.5s;
-}
-#test {
-  background-color: red;
-}
+  .bigTitleCard {
+    height: 500px;
+  }
+  .mediumTitleCard {
+    height: 400px;
+  }
+  .smallTitleCard {
+    height: 250px;
+  }
+  .backgroundSVG {
+    position: absolute;
+    z-index: 1;
+  }
+  .bigBoxSVG {
+    top: 80px;
+    right: 110px;
+  }
+  .mediumBoxSVG {
+    top: 80px;
+    right: 35px;
+  }
+  .smallBoxSVG {
+    top: 80px;
+    right: 20px;
+  }
+  #ellipse {
+    bottom: 0;
+    left: 0;
+  }
+  #titleText {
+    position: absolute;
+    top: 80px;
+    z-index: 3;
+  }
+  .bigTitle {
+    right: 200px;
+  }
+  .mediumTitle {
+    right: 85px;
+  }
+  .smallTitle {
+    right: 40px;
+  }
+  #subtitleText {
+    position: absolute;
+    z-index: 2;
+  }
+  .bigSubtitle {
+    top: 200px;
+    right: 380px;
+  }
+  .mediumSubtitle {
+    top: 160px;
+    right: 200px;
+  }
+  .smallSubtitle {
+    top: 120px;
+    right: 110px;
+  }
+  .arrow {
+    position: absolute;
+    /*transform: rotate(-60deg);*/
+  }
+  .bigArrow {
+    top: 260px;
+    right: 620px;
+  }
+  .mediumArrow {
+    top: 210px;
+    right: 370px;
+    z-index: 3;
+  }
+  .smallArrow {
+    top: 150px;
+    right: 180px;
+    z-index: 3;
+  }
+  .fadeInRight {
+    animation-duration: 0.11s;
+  }
+  .fadeIn {
+    animation-duration: 0.11s;
+  }
+  .boxAnimation {
+    animation-delay: 0.11s;
+  }
+  .subtitleAnimation {
+    animation-delay: 0.15s;
+  }
+  .arrowAnimation {
+    animation-delay: 0.15s;
+    animation-duration: 0.15s;
+  }
+  #test {
+    background-color: red;
+  }
 </style>
