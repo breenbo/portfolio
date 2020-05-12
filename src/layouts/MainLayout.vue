@@ -90,44 +90,46 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
-import { Button } from 'components/models/models';
-import jumboTitle from 'components/jumbo.vue';
-import beCards from 'components/beCard.vue';
-import knowCard from 'components/knowCard.vue';
-import doCard from 'components/doCard.vue';
-import shareCard from 'components/shareCard.vue';
+  import { Vue, Component } from 'vue-property-decorator';
+  import { Button } from 'components/models/models';
+  import jumboTitle from 'components/jumbo.vue';
+  import beCards from 'components/beCard.vue';
+  const knowCard = () => import('components/knowCard.vue');
+  const doCard = () => import('components/doCard.vue');
+  const shareCard = () => import('components/shareCard.vue');
+  //import doCard from 'components/doCard.vue';
+  //import shareCard from 'components/shareCard.vue';
 
-@Component({
-  components: { jumboTitle, beCards, knowCard, doCard, shareCard }
-})
-export default class MainLayout extends Vue {
-  buttons: Button = {
-    be: {
-      name: 'Be',
-      route: '#be'
-    },
-    know: {
-      name: 'Know',
-      route: '#know'
-    },
-    do: {
-      name: 'Do',
-      route: '#do'
-    },
-    share: {
-      name: 'Share',
-      route: '#share'
-    }
-  };
-}
+  @Component({
+    components: { jumboTitle, beCards, knowCard, doCard, shareCard }
+  })
+  export default class MainLayout extends Vue {
+    buttons: Button = {
+      be: {
+        name: 'Be',
+        route: '#be'
+      },
+      know: {
+        name: 'Know',
+        route: '#know'
+      },
+      do: {
+        name: 'Do',
+        route: '#do'
+      },
+      share: {
+        name: 'Share',
+        route: '#share'
+      }
+    };
+  }
 </script>
 <style scoped>
-#container {
-  z-index: 1;
-}
-#scroller {
-  position: relative;
-  z-index: 90;
-}
+  #container {
+    z-index: 1;
+  }
+  #scroller {
+    position: relative;
+    z-index: 90;
+  }
 </style>
