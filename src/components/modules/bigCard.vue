@@ -86,78 +86,78 @@
 </template>
 
 <script lang="ts">
-//Imports{{{1
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { CardDatas } from 'components/models/models';
-//}}}
+  //Imports{{{1
+  import { Vue, Component, Prop } from 'vue-property-decorator';
+  import { CardDatas } from 'components/models/models';
+  //}}}
 
-@Component
-export default class Card extends Vue {
-  //props{{{1
-  @Prop(Object) readonly cardDatas!: CardDatas;
-  //}}}
-  //Computed {{{1
-  //}}}
-}
+  @Component
+  export default class Card extends Vue {
+    //props{{{1
+    @Prop(Object) readonly cardDatas!: CardDatas;
+    //}}}
+    //Computed {{{1
+    //}}}
+  }
 </script>
 
 <style scoped>
-.bigCardContainer {
-  max-width: 1600px;
-  min-height: 700px;
-}
-.mediumCardContainer {
-  max-width: 1600px;
-  min-height: 500px;
-}
-.roundCorner {
-  border-radius: 8px !important;
-}
-.bigRoundTopCorner {
-  border-top-right-radius: 15vw !important;
-}
-.bigRoundBottomCorner {
-  border-bottom-left-radius: 15vw !important;
-}
-.cardTitle {
-  position: relative;
-  top: 80px;
-  left: 50px;
-  z-index: 10;
-  width: 35%;
-}
-.cardText {
-  position: relative;
-  top: 60px;
-  right: 85%;
-  width: 180%;
-  /*left: -26vw;*/
-  z-index: 2;
-}
-.imageFondBig {
-  height: 580px;
-}
-.imageFondMedium {
-  height: 400px;
-}
-.doBackground {
-  height: 620px;
-  background-color: hsl(256, 38%, 93%);
-}
-.doMediumBackground {
-  height: 520px;
-  background-color: hsl(256, 38%, 93%);
-}
-.doCardText {
-  position: relative;
-  top: 110px;
-  right: 55%;
-  width: 150%;
-}
-.fadeInUp {
-  animation-duration: 1s;
-}
-.waitBeCard {
-  animation-delay: 2s;
-}
+  .bigCardContainer {
+    max-width: 1600px;
+    min-height: 700px;
+  }
+  .mediumCardContainer {
+    max-width: 1600px;
+    min-height: 500px;
+  }
+  .roundCorner {
+    border-radius: 8px !important;
+  }
+  .bigRoundTopCorner {
+    border-top-right-radius: 15vw !important;
+  }
+  .bigRoundBottomCorner {
+    border-bottom-left-radius: 15vw !important;
+  }
+  .cardTitle {
+    position: relative;
+    top: 80px;
+    left: 50px;
+    z-index: 10;
+    width: 35%;
+  }
+  .cardText {
+    position: relative;
+    top: 60px;
+    right: 85%;
+    width: 180%;
+    /*left: -26vw;*/
+    z-index: 2;
+  }
+  .imageFondBig {
+    height: 580px;
+  }
+  .imageFondMedium {
+    height: 400px;
+  }
+  .doBackground {
+    height: 620px;
+    background-color: hsl(256, 38%, 93%);
+  }
+  .doMediumBackground {
+    height: 520px;
+    background-color: hsl(256, 38%, 93%);
+  }
+  .doCardText {
+    position: relative;
+    top: 110px;
+    right: 55%;
+    width: 150%;
+  }
+  .fadeInUp {
+    animation-duration: 1s;
+  }
+  .waitBeCard {
+    animation-delay: 1s;
+  }
 </style>
