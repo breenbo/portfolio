@@ -66,28 +66,67 @@
       </div>
     </div>
     <!-- }}} -->
+
     <!-- smallCarousel{{{1 -->
     <div v-else>
       <!-- TODO : open video in a modal on click on image ? -->
-      <q-carousel
-        arrows
-        animated
-        infinite
-        v-model="slide"
-        class="rounded-borders"
-      >
-        <q-carousel-slide
-          v-for="slide in slides"
-          :key="slide.id"
-          :name="slide.name"
-          :img-src="slide.image"
-        >
-          <div class="absolute-bottom custom-caption q-pa-md">
-            <div class="text-h6">{{ slide.title }}</div>
-            <div class="text-caption" v-html="slide.text"></div>
+      <div class="col">
+        <div class="col">
+          <div class="text-center text-h6 q-mb-md">
+            {{ slides[slide].title }}
           </div>
-        </q-carousel-slide>
-      </q-carousel>
+          <div class="row items-center full-height" v-if="slides[slide].video">
+            <div class="col">
+              <q-media-player
+                dense
+                type="video"
+                :source="slides[slide].video"
+                :poster="slides[slide].image"
+                :show-big-play-button="true"
+                background-color="primary"
+                :hide-volume-slider="hideVolume"
+                :big-play-button-color="
+                  slides[slide].name == 'first' ? 'white ' : ' primary'
+                "
+              >
+              </q-media-player>
+            </div>
+          </div>
+          <q-img
+            class="full-height roundedCorner"
+            :src="slides[slide].image"
+            v-else-if="slides[slide].image"
+          >
+          </q-img>
+          <div
+            v-else
+            class="q-pt-xl bg-primary text-grey-1 roundedCorner text-center text-h4"
+          >
+            No image for "{{ slides[slide].title }}"
+          </div>
+        </div>
+        <q-carousel
+          id="smallCarousel"
+          v-model="slide"
+          swipeable
+          animated
+          infinite
+          arrows
+          padding
+          control-color="primary"
+          class="col"
+          height="100%"
+        >
+          <q-carousel-slide
+            v-for="slide in slides"
+            :key="slide.id"
+            :name="slide.name"
+            class="no-wrap flex-center"
+          >
+            <div class="text-caption" v-html="slide.text"></div>
+          </q-carousel-slide>
+        </q-carousel>
+      </div>
     </div>
     <!-- }}} -->
   </div>

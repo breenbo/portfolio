@@ -8,18 +8,21 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +34 src/components/modules/shareLogos.vue
-badd +25 src/components/doCard.vue
-badd +2 src/components/modules/carousel.vue
-badd +180 src/components/beCard.vue
-badd +14 src/components/knowCard.vue
-badd +22 src/components/shareCard.vue
-badd +127 src/layouts/MainLayout.vue
+badd +9 src/components/doCard.vue
+badd +160 src/components/modules/carousel.vue
+badd +2 src/components/beCard.vue
+badd +2 src/components/knowCard.vue
+badd +2 src/components/shareCard.vue
+badd +49 src/layouts/MainLayout.vue
 badd +158 src/components/modules/bigCard.vue
 badd +232 src/components/jumbo.vue
+badd +2 src/App.vue
+badd +23 src/css/quasar.variables.sass
+badd +18 src/router/index.ts
 argglobal
 %argdel
 $argadd src/App.vue
-edit src/components/modules/bigCard.vue
+edit src/components/modules/carousel.vue
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -35,12 +38,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 25) / 50)
+154
+normal! zo
+let s:l = 158 - ((157 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 010|
+158
+normal! 09|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
