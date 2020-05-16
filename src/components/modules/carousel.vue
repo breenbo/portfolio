@@ -15,7 +15,7 @@
               :poster="slides[slide].image"
               :show-big-play-button="true"
               background-color="primary"
-              hide-volume-slider="hideVolume"
+              :hide-volume-slider="hideVolume"
               :big-play-button-color="
                 slides[slide].name == 'first' ? 'white ' : ' primary'
               "

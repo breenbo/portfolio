@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header reveal>
+    <q-header>
       <q-toolbar class="bg-secondary">
         <!-- FELBlogo{{{1 -->
         <svg
@@ -45,21 +45,26 @@
         <!-- }}} -->
         <q-toolbar-title class="q-my-md">FELB Portfolio</q-toolbar-title>
         <q-space />
-        <q-btn
+        <router-link
           v-for="button in buttons"
           :key="button.name"
-          :to="button.route"
-          unelevated
-          color="dark"
-          class="q-mx-xs gt-sm"
-          >{{ button.name }}</q-btn
+          :to="{ path: '/', hash: button.route }"
         >
+          <q-btn
+            unelevated
+            outline
+            rounded
+            class="q-mx-xs gt-sm button"
+            color="info"
+            >{{ button.name }}</q-btn
+          >
+        </router-link>
       </q-toolbar>
     </q-header>
 
     <q-page-container>
       <q-page class="q-mb-md">
-        <jumboTitle />
+        <jumboTitle id="top" />
         <beCards />
         <knowCard />
         <doCard />
@@ -67,24 +72,32 @@
       </q-page>
     </q-page-container>
 
-    <!--<q-footer class="lt-md row justify-around">-->
-    <!--  <!-1-ToDo : navigate with tabs-1->-->
-    <!--  <q-btn-->
-    <!--    v-for="button in buttons"-->
-    <!--    :key="button.name"-->
-    <!--    :to="button.route"-->
-    <!--    unelevated-->
-    <!--    class="q-pa-sm"-->
-    <!--    >{{ button.name }}</q-btn-->
-    <!--  >-->
-    <!--</q-footer>-->
+    <q-footer class="lt-md row justify-around" reveal>
+      <!--ToDo : navigate with tabs-->
+      <q-btn
+        v-for="button in buttons"
+        :key="button.name"
+        :to="{ path: '/', hash: button.route }"
+        unelevated
+        outline
+        rounded
+        class="q-px-sm q-my-md"
+        >{{ button.name }}</q-btn
+      >
+    </q-footer>
     <q-page-scroller
       id="scroller"
       position="bottom-right"
       :scroll-offset="150"
       :offset="[18, 18]"
     >
-      <q-btn id="upButton" fab icon="keyboard_arrow_up" color="accent" />
+      <q-btn
+        id="upButton"
+        fab
+        icon="keyboard_arrow_up"
+        color="accent"
+        :to="{ path: '/', hash: '#top' }"
+      />
     </q-page-scroller>
   </q-layout>
 </template>
@@ -135,5 +148,9 @@
   #scroller {
     position: relative;
     z-index: 90;
+  }
+  .button {
+    width: 100px;
+    margin-left: 10px;
   }
 </style>

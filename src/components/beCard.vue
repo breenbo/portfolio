@@ -1,5 +1,5 @@
 <template>
-  <div class="col">
+  <div class="col" id="be">
     <big-card :card-datas="datas">
       <!--slot {{{1-->
       <div class="row q-mt-lg">

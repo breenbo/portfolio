@@ -155,9 +155,9 @@
     width: 150%;
   }
   .fadeInUp {
-    animation-duration: 100ms;
+    animation-duration: 500ms;
   }
   .waitBeCard {
-    animation-delay: 100ms;
+    animation-delay: 1200ms;
   }
 </style>

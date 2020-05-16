@@ -1,5 +1,5 @@
 <template>
-  <div class="col">
+  <div class="col" id="know">
     <big-card :card-datas="datas">
       <!--slot {{{1-->
       <logos />

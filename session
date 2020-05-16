@@ -14,12 +14,12 @@ badd +180 src/components/beCard.vue
 badd +14 src/components/knowCard.vue
 badd +22 src/components/shareCard.vue
 badd +127 src/layouts/MainLayout.vue
-badd +161 src/components/modules/bigCard.vue
-badd +0 src/components/jumbo.vue
+badd +158 src/components/modules/bigCard.vue
+badd +232 src/components/jumbo.vue
 argglobal
 %argdel
 $argadd src/App.vue
-edit src/components/jumbo.vue
+edit src/components/modules/bigCard.vue
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -35,12 +35,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 215 - ((27 * winheight(0) + 25) / 50)
+let s:l = 1 - ((0 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-215
-normal! 012|
+1
+normal! 010|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -48,7 +48,7 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=I
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if file_readable(s:sx)
+if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
