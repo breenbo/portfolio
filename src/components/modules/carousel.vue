@@ -7,6 +7,7 @@
         class="col roundedCorner imageContainer"
         :class="$q.screen.gt.md ? 'imageContainerBig' : 'imageContainerMedium'"
       >
+        <!-- left container for video, img or text -->
         <div class="row items-center full-height" v-if="slides[slide].video">
           <div class="col">
             <q-media-player
@@ -39,6 +40,7 @@
       </div>
       <q-space />
       <div class="col">
+        <!-- text part of the carousel -->
         <q-carousel
           arrows
           animated
@@ -59,7 +61,7 @@
               <div :class="fontSize" class="text-center">
                 {{ slide.title }}
               </div>
-              <div class="text-body1 q-mt-lg" v-html="slide.text"></div>
+              <div class="text-h5 q-mt-lg" v-html="slide.text"></div>
             </div>
           </q-carousel-slide>
         </q-carousel>

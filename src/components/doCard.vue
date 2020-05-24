@@ -35,7 +35,7 @@
   export default class Card extends Vue {
     //datas{{{1
     datas: CardDatas = {
-      cardPicture: 'statics/img/code.webp',
+      cardPicture: 'statics/img/code',
       cardTitle: 'Do',
       cardSubtitle: 'Awesome apps',
       subCardTitle: '',

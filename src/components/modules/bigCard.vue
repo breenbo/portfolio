@@ -35,7 +35,8 @@
             v-if="cardDatas.cardTitle !== 'Do'"
           >
             <q-img
-              :src="cardDatas.cardPicture"
+              :srcset="`${cardDatas.cardPicture}.webp`"
+              :src="`${cardDatas.cardPicture}.jpg`"
               :class="[
                 cardDatas.bottomLeft ? 'bigRoundBottomCorner' : '',
                 $q.screen.gt.md ? 'imageFondBig' : 'imageFondMedium'

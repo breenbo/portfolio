@@ -14,7 +14,8 @@
       >
         <q-img
           :id="cardDatas.cardTitle.toLowerCase()"
-          :src="cardDatas.cardPicture"
+          :srcset="`${cardDatas.cardPicture}.webp`"
+          :src="`${cardDatas.cardPicture}.jpg`"
           class="headerImage"
           :class="cardDatas.cardTitle === 'Be' ? 'q-mt-xl' : ''"
         ></q-img>
