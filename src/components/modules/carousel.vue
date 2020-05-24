@@ -61,7 +61,10 @@
               <div :class="fontSize" class="text-center">
                 {{ slide.title }}
               </div>
-              <div class="text-h5 q-mt-lg" v-html="slide.text"></div>
+              <div
+                class="text-h6 text-weight-light q-mt-lg"
+                v-html="slide.text"
+              ></div>
             </div>
           </q-carousel-slide>
         </q-carousel>
