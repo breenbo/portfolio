@@ -13,7 +13,7 @@
             <q-media-player
               type="video"
               :source="slides[slide].video"
-              :poster="slides[slide].image"
+              :poster="`${slides[slide].image}.webp`"
               :show-big-play-button="true"
               background-color="primary"
               :hide-volume-slider="hideVolume"
@@ -25,12 +25,15 @@
             </q-media-player>
           </div>
         </div>
-        <q-img
-          class="full-height roundedCorner"
-          :src="slides[slide].image"
-          v-else-if="slides[slide].image"
-        >
-        </q-img>
+        <div v-else-if="slides[slide].image">
+          <a :href="slides[slide].link" target="_blank">
+            <img
+              class="roundedCorner image absolute-bottom"
+              :srcset="`${slides[slide].image}.webp`"
+              :src="`${slides[slide].image}.jpg`"
+            />
+          </a>
+        </div>
         <div
           v-else
           class="q-pt-xl bg-primary text-grey-1 roundedCorner text-center text-h4"
@@ -86,7 +89,7 @@
                 dense
                 type="video"
                 :source="slides[slide].video"
-                :poster="slides[slide].image"
+                :poster="`${slides[slide].image}.webp`"
                 :show-big-play-button="true"
                 background-color="primary"
                 :hide-volume-slider="hideVolume"
@@ -97,12 +100,16 @@
               </q-media-player>
             </div>
           </div>
-          <q-img
-            class="full-height roundedCorner"
-            :src="slides[slide].image"
-            v-else-if="slides[slide].image"
-          >
-          </q-img>
+          <div v-else-if="slides[slide].image">
+            <a :href="slides[slide].link" target="_blank">
+              <q-img
+                class="full-height roundedCorner"
+                :srcset="`${slides[slide].image}.webp`"
+                :src="`${slides[slide].image}.jpg`"
+              >
+              </q-img>
+            </a>
+          </div>
           <div
             v-else
             class="q-pt-xl bg-primary text-grey-1 roundedCorner text-center text-h4"
@@ -153,8 +160,8 @@
         name: 'first',
         title: 'Portail BN',
         text:
-          ' Complete Web App made with Vue and Vuetify. Several pages, with specific content, theme color and animated svg for menu.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
-        image: 'statics/img/projects/portailScreen.webp',
+          ' Complete Web App made with VueJS and Vuetify. Several pages, with specific content, theme color and animated svg for menu.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
+        image: 'statics/img/projects/portailScreen',
         link: '',
         video: 'statics/videos/portail.webm'
       },
@@ -162,7 +169,7 @@
         name: 'second',
         title: 'Tribute to Elon Musk',
         text: 'Experimentation with verticals containers and sliders.',
-        image: 'statics/img/projects/elonScreen.webp',
+        image: 'statics/img/projects/elonScreen',
         link: 'https://breenbo.github.io/FCC_tribute/',
         video: 'statics/videos/elonTributeVideo.webm'
       },
@@ -170,17 +177,26 @@
         name: 'third',
         title: 'Awesome ToDo',
         text:
-          'Todo web and android single page app, made with Vue and Quasar. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
-        image: 'statics/img/projects/todoScreen.webp',
+          'Todo web and android single page app, made with VueJS and Quasar framework. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
+        image: 'statics/img/projects/todoScreen',
         link: '',
         video: 'statics/videos/todoApp.webm'
       },
       fourth: {
         name: 'fourth',
+        title: 'Landing Page',
+        text:
+          'Full responsive landing page project made with VueJS and Quasar framework.',
+        image: 'statics/img/projects/landingPage',
+        link: 'https://landingpagetemplate.netlify.app/#/',
+        video: ''
+      },
+      fifth: {
+        name: 'fifth',
         title: 'Meal App',
         text:
-          'Cooking app made with Vue and Vuetify, based on an API reached with axios. Backend by Firebase.',
-        image: 'statics/img/projects/mealScreen.webp',
+          'Cooking app made with VueJS and Vuetify framework, based on an API reached with axios. Backend by Firebase.',
+        image: 'statics/img/projects/mealScreen',
         link: '',
         video: 'statics/videos/mealApp.webm'
       }
@@ -224,6 +240,11 @@
   }
   .imageContainerMedium {
     height: 140%;
+  }
+  .image {
+    height: 100%;
+    padding-top: 5%;
+    margin: 0 auto;
   }
   .q-carousel {
     height: 350px;
