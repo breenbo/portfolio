@@ -9,13 +9,12 @@ endif
 set shortmess=aoO
 badd +10 src/components/modules/shareLogos.vue
 badd +10 src/components/doCard.vue
-badd +106 src/components/modules/carousel.vue
+badd +255 src/components/modules/carousel.vue
 badd +190 src/components/beCard.vue
 badd +38 src/components/knowCard.vue
 badd +5 src/components/shareCard.vue
 badd +49 src/layouts/MainLayout.vue
 badd +34 src/components/modules/bigCard.vue
-badd +232 src/components/jumbo.vue
 badd +2 src/App.vue
 badd +23 src/css/quasar.variables.sass
 badd +18 src/router/index.ts
@@ -39,14 +38,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-155
-normal! zo
-let s:l = 181 - ((12 * winheight(0) + 25) / 50)
+let s:l = 1 - ((0 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-181
-normal! 0
+1
+normal! 010|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

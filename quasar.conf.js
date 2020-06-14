@@ -118,14 +118,14 @@ module.exports = configure(function (ctx) {
     pwa: {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
-      manifest: {
-        name: 'portfolio',
-        short_name: 'portfolio',
-        description: 'Portfolio made with quasar',
+        manifest: {
+            name: 'FELB portfolio',
+            short_name: 'FELB portfolio',
+            description: 'Portfolio made with Quasar framework',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
-        theme_color: '#027be3',
+        background_color: 'hsl(256,38%,40%)',
+        theme_color: 'hsl(256,38%,40%)',
         icons: [
           {
             src: 'statics/icons/icon-128x128.png',

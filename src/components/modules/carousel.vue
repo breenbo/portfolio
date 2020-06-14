@@ -8,38 +8,48 @@
         :class="$q.screen.gt.md ? 'imageContainerBig' : 'imageContainerMedium'"
       >
         <!-- left container for video, img or text -->
-        <div class="row items-center full-height" v-if="slides[slide].video">
-          <div class="col">
-            <q-media-player
-              type="video"
-              :source="slides[slide].video"
-              :poster="`${slides[slide].image}.webp`"
-              :show-big-play-button="true"
-              background-color="primary"
-              :hide-volume-slider="hideVolume"
-              :big-play-button-color="
-                slides[slide].name == 'first' ? 'white ' : ' primary'
-              "
-              dense
-            >
-            </q-media-player>
+        <transition enter-active-class="animated fadeIn">
+          <div class="row items-center full-height" v-if="slides[slide].video">
+            <transition enter-active-class="animated fadeIn">
+              <div class="col" :key="slides[slide].name">
+                <q-media-player
+                  type="video"
+                  :source="slides[slide].video"
+                  :poster="`${slides[slide].image}.webp`"
+                  :show-big-play-button="true"
+                  background-color="primary"
+                  :hide-volume-slider="hideVolume"
+                  :big-play-button-color="
+                    slides[slide].name == 'first' ? 'white ' : ' primary'
+                  "
+                  dense
+                >
+                </q-media-player>
+              </div>
+            </transition>
           </div>
-        </div>
-        <div v-else-if="slides[slide].image">
-          <a :href="slides[slide].link" target="_blank">
-            <img
-              class="roundedCorner image absolute-bottom"
-              :srcset="`${slides[slide].image}.webp`"
-              :src="`${slides[slide].image}.jpg`"
-            />
-          </a>
-        </div>
-        <div
-          v-else
-          class="q-pt-xl bg-primary text-grey-1 roundedCorner text-center text-h4"
-        >
-          No image for "{{ slides[slide].title }}"
-        </div>
+          <div v-else-if="slides[slide].image">
+            <transition enter-active-class="animated fadeIn">
+              <a
+                :href="slides[slide].link"
+                target="_blank"
+                :key="slides[slide].name"
+              >
+                <img
+                  class="roundedCorner image absolute-bottom"
+                  :srcset="`${slides[slide].image}.webp`"
+                  :src="`${slides[slide].image}.jpg`"
+                />
+              </a>
+            </transition>
+          </div>
+          <div
+            v-else
+            class="q-pt-xl bg-primary text-grey-1 roundedCorner text-center text-h4"
+          >
+            No image for "{{ slides[slide].title }}"
+          </div>
+        </transition>
       </div>
       <q-space />
       <div class="col">
@@ -248,5 +258,8 @@
   }
   .q-carousel {
     height: 350px;
+  }
+  .fadeIn {
+    transition-duration: 1000ms;
   }
 </style>
