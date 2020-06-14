@@ -3,3 +3,7 @@
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
+
+self.addEventListener('install', evt => {
+    console.log('sw has been installed')
+})

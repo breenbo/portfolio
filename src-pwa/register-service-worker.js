@@ -11,16 +11,16 @@ register(process.env.SERVICE_WORKER_FILE, {
 
   // registrationOptions: { scope: './' },
 
-  ready (/* registration */) {
-    // console.log('Service worker is active.')
+    ready(/* registration */) {
+        console.log('sw is active.')
   },
 
   registered (/* registration */) {
-    // console.log('Service worker has been registered.')
+     console.log('Service worker has been registered.')
   },
 
   cached (/* registration */) {
-    // console.log('Content has been cached for offline use.')
+     console.log('Content has been cached for offline use.')
   },
 
   updatefound (/* registration */) {
