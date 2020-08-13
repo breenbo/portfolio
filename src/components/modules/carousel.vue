@@ -189,6 +189,15 @@ export default class Carousel extends Vue {
   slides: DoProject = {
     first: {
       name: 'first',
+      title: 'iotProject',
+      text:
+        'Fully responsive app to manage iot firmware, made with Quasar framework. No backend.',
+      image: 'statics/img/projects/iot',
+      link: 'https://iotproject.netlify.app/#/',
+      video: '',
+    },
+    second: {
+      name: 'second',
       title: 'Portail BN',
       text:
         ' Complete Web App made with VueJS and Vuetify. Several pages, with specific content, theme color and animated svg for menu.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
@@ -196,8 +205,8 @@ export default class Carousel extends Vue {
       link: '',
       video: 'statics/videos/portail.webm',
     },
-    second: {
-      name: 'second',
+    third: {
+      name: 'third',
       title: 'FixATable',
       text:
         'Responsive web app to book a table in cafes. Backend by Firebase. <br/>Differents users and cafe owner, manage availables tables in different cafes.',
@@ -205,8 +214,8 @@ export default class Carousel extends Vue {
       link: '',
       video: '',
     },
-    third: {
-      name: 'third',
+    fourth: {
+      name: 'fourth',
       title: 'Awesome ToDo',
       text:
         'Todo web and android single page app, made with VueJS and Quasar framework. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
@@ -214,8 +223,8 @@ export default class Carousel extends Vue {
       link: '',
       video: 'statics/videos/todoApp.webm',
     },
-    fourth: {
-      name: 'fourth',
+    fifth: {
+      name: 'fifth',
       title: 'Landing Page',
       text:
         'Full responsive landing page project made with VueJS and Quasar framework.',
@@ -223,8 +232,8 @@ export default class Carousel extends Vue {
       link: 'https://landingpagetemplate.netlify.app/#/',
       video: '',
     },
-    fifth: {
-      name: 'fifth',
+    sixth: {
+      name: 'sixth',
       title: 'Meal App',
       text:
         'Cooking app made with VueJS and Vuetify framework, based on an API reached with axios. Backend by Firebase.',
@@ -232,8 +241,8 @@ export default class Carousel extends Vue {
       link: '',
       video: 'statics/videos/mealApp.webm',
     },
-    sixth: {
-      name: 'sixth',
+    seventh: {
+      name: 'seventh',
       title: 'Tribute to Elon Musk',
       text: 'Experimentation with verticals containers and sliders.',
       image: 'statics/img/projects/elonScreen',
