@@ -24,7 +24,7 @@
                 <q-media-player
                   type="video"
                   :source="slides[slide].video"
-                  :poster="`${slides[slide].image}.webp`"
+                  :poster="`${slides[slide].image.url}.webp`"
                   :show-big-play-button="true"
                   background-color="primary"
                   :hide-volume-slider="hideVolume"
@@ -45,9 +45,10 @@
                 :key="slides[slide].name"
               >
                 <img
-                  class="roundedCorner image absolute-bottom"
-                  :srcset="`${slides[slide].image}.webp`"
-                  :src="`${slides[slide].image}.jpg`"
+                  class="roundedCorner"
+                  :class="slides[slide].image.landscape ? 'imageLandscape absolute-center':'image absolute-bottom'"
+                  :srcset="`${slides[slide].image.url}.webp`"
+                  :src="`${slides[slide].image.url}.jpg`"
                 />
               </a>
             </transition>
@@ -189,28 +190,32 @@ export default class Carousel extends Vue {
   slides: DoProject = {
     first: {
       name: 'first',
-      title: 'iotProject',
-      text:
-        'Fully responsive app to manage iot firmware, made with Quasar framework. No backend.',
-      image: 'statics/img/projects/iot',
-      link: 'https://iotproject.netlify.app/#/',
-      video: '',
-    },
-    second: {
-      name: 'second',
       title: 'Portail BN',
       text:
         ' Complete Web App made with VueJS and Vuetify. Several pages, with specific content, theme color and animated svg for menu.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
-      image: 'statics/img/projects/portailScreen',
+        image: {
+            url:'statics/img/projects/portailScreen',
+        },
       link: '',
       video: 'statics/videos/portail.webm',
+    },
+    second: {
+      name: 'second',
+      title: 'iotProject',
+      text:
+        'Fully responsive app to manage iot firmware, made with Quasar framework. No backend.',
+        image: {url:'statics/img/projects/iot',
+            landscape:true
+        },
+      link: 'https://iotproject.netlify.app/#/',
+      video: '',
     },
     third: {
       name: 'third',
       title: 'FixATable',
       text:
         'Responsive web app to book a table in cafes. Backend by Firebase. <br/>Differents users and cafe owner, manage availables tables in different cafes.',
-      image: 'statics/img/projects/fixatable',
+        image:{url: 'statics/img/projects/fixatable',},
       link: '',
       video: '',
     },
@@ -219,7 +224,7 @@ export default class Carousel extends Vue {
       title: 'Awesome ToDo',
       text:
         'Todo web and android single page app, made with VueJS and Quasar framework. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
-      image: 'statics/img/projects/todoScreen',
+        image:{url: 'statics/img/projects/todoScreen',},
       link: '',
       video: 'statics/videos/todoApp.webm',
     },
@@ -228,7 +233,7 @@ export default class Carousel extends Vue {
       title: 'Landing Page',
       text:
         'Full responsive landing page project made with VueJS and Quasar framework.',
-      image: 'statics/img/projects/landingPage',
+        image:{url: 'statics/img/projects/landingPage',},
       link: 'https://landingpagetemplate.netlify.app/#/',
       video: '',
     },
@@ -237,7 +242,7 @@ export default class Carousel extends Vue {
       title: 'Meal App',
       text:
         'Cooking app made with VueJS and Vuetify framework, based on an API reached with axios. Backend by Firebase.',
-      image: 'statics/img/projects/mealScreen',
+        image: {url:'statics/img/projects/mealScreen',},
       link: '',
       video: 'statics/videos/mealApp.webm',
     },
@@ -245,7 +250,7 @@ export default class Carousel extends Vue {
       name: 'seventh',
       title: 'Tribute to Elon Musk',
       text: 'Experimentation with verticals containers and sliders.',
-      image: 'statics/img/projects/elonScreen',
+        image:{url: 'statics/img/projects/elonScreen',},
       link: 'https://breenbo.github.io/FCC_tribute/',
       video: 'statics/videos/elonTributeVideo.webm',
     }, //fourth: {
@@ -293,6 +298,9 @@ export default class Carousel extends Vue {
   height: 100%;
   padding-top: 5%;
   margin: 0 auto;
+}
+.imageLandscape {
+    width:100%;
 }
 .q-carousel {
   height: 350px;

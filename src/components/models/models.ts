@@ -31,12 +31,16 @@ export interface KnowLogos {
         svg:string
     }
 }
+export interface Image {
+    url:string,
+    landscape?:boolean
+}
 export interface DoProject {
     [projectName:string] : {
       name: string,
       title: string,
       text: string,
-      image: string,
+      image: Image,
       link: string,
       video:string
     }
