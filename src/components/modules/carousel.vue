@@ -31,6 +31,7 @@
           <div v-else-if="slides[slide].image">
             <transition enter-active-class="animated fadeIn">
               <a
+                v-if="slides[slide].link"
                 :href="slides[slide].link"
                 target="_blank"
                 :key="slides[slide].name"
@@ -46,6 +47,17 @@
                   :src="`${slides[slide].image.url}.jpg`"
                 />
               </a>
+              <img
+                v-else
+                class="roundedCorner"
+                :class="
+                  slides[slide].image.landscape
+                    ? 'imageLandscape absolute-center'
+                    : 'image absolute-bottom'
+                "
+                :srcset="`${slides[slide].image.url}.webp`"
+                :src="`${slides[slide].image.url}.jpg`"
+              />
             </transition>
           </div>
           <div
@@ -75,14 +87,25 @@
             class="rounded-borders"
             :name="slide.name"
           >
-            <div class="q-mt-xl q-ma-md">
+            <div class="q-ma-md">
               <div :class="fontSize" class="text-center">
                 {{ slide.title }}
               </div>
-              <div
-                class="text-h6 text-weight-light q-mt-lg"
-                v-html="slide.text"
-              ></div>
+              <div class="column justify-between carousel-text-container">
+                <div
+                  class="text-h6 text-weight-light q-mt-lg col"
+                  v-html="slide.text"
+                ></div>
+                <div class="col">
+                  <q-chip
+                    outline
+                    color="purple-10"
+                    v-for="chip in slide.chips"
+                    :key="chip.id"
+                    >{{ chip }}</q-chip
+                  >
+                </div>
+              </div>
             </div>
           </q-carousel-slide>
         </q-carousel>
@@ -116,7 +139,11 @@
             </div>
           </div>
           <div v-else-if="slides[slide].image">
-            <a :href="slides[slide].link" target="_blank">
+            <a
+              v-if="slides[slide].link"
+              :href="slides[slide].link"
+              target="_blank"
+            >
               <q-img
                 class="full-height roundedCorner"
                 :srcset="`${slides[slide].image.url}.webp`"
@@ -124,6 +151,13 @@
               >
               </q-img>
             </a>
+            <q-img
+              v-else
+              class="full-height roundedCorner"
+              :srcset="`${slides[slide].image.url}.webp`"
+              :src="`${slides[slide].image.url}.jpg`"
+            >
+            </q-img>
           </div>
           <div
             v-else
@@ -151,6 +185,14 @@
             class="no-wrap flex-center"
           >
             <div class="text-caption" v-html="slide.text"></div>
+            <q-chip
+              outline
+              dense
+              color="purple-10"
+              v-for="chip in slide.chips"
+              :key="chip.id"
+              >{{ chip }}</q-chip
+            >
           </q-carousel-slide>
         </q-carousel>
       </div>
@@ -173,76 +215,95 @@ export default class Carousel extends Vue {
   slides: DoProject = {
     first: {
       name: 'first',
+      title: 'SaS',
+      text:
+        ' Web App to manage IoT with real time charts done, customized google map, tables and forms to manage users and devices permissions. Datas from REST API.',
+      chips: [
+        'Vue',
+        'Vuex',
+        'Vue-Router',
+        'Vuetify',
+        'D3',
+        'REST API',
+        'Typescript',
+        'Jest',
+      ],
+      image: {
+        url: 'statics/img/projects/sas',
+        landscape: true,
+      },
+      link: '',
+      video: '',
+    },
+    second: {
+      name: 'second',
       title: 'Portail BN',
       text:
-        ' Complete Web App made with VueJS and Vuetify. Several pages, with specific content, theme color and animated svg for menu.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
+        ' Complete Web App with several pages, with specific content, theme color and animated svg for menu.<br/><span class="text-italic">Backend by excel sheet</span>, works surprisingly well.',
+      chips: ['Vue', 'Vue-Router', 'Vuetify', 'Excel'],
       image: {
         url: 'statics/img/projects/portailScreen',
       },
       link: '',
       video: 'statics/videos/portail.webm',
     },
-    second: {
-      name: 'second',
+    third: {
+      name: 'third',
       title: 'iotProject',
-      text:
-        'Fully responsive app to manage iot firmware, made with Quasar framework. No backend.',
+      text: 'Fully responsive app to manage IoT firmware, no backend.',
+      chips: ['Vue', 'Vue-Router', 'Quasar'],
       image: { url: 'statics/img/projects/iot', landscape: true },
       link: 'https://iotproject.netlify.app/#/',
       video: '',
     },
-    third: {
-      name: 'third',
-      title: 'FixATable',
-      text:
-        'Responsive web app to book a table in cafes. Backend by Firebase. <br/>Differents users and cafe owner, manage availables tables in different cafes.',
-      image: { url: 'statics/img/projects/fixatable' },
-      link: '',
-      video: '',
-    },
-    fourth: {
-      name: 'fourth',
-      title: 'Awesome ToDo',
-      text:
-        'Todo web and android single page app, made with VueJS and Quasar framework. Backend by Firebase. <br/>Differents user, local storage for personnal settings.',
-      image: { url: 'statics/img/projects/todoScreen' },
-      link: '',
-      video: 'statics/videos/todoApp.webm',
-    },
-    fifth: {
-      name: 'fifth',
+    sixth: {
+      name: 'sixth',
       title: 'Landing Page',
-      text:
-        'Full responsive landing page project made with VueJS and Quasar framework.',
+      text: 'Full responsive landing page project, no backend.',
+      chips: ['Vue', 'Quasar'],
       image: { url: 'statics/img/projects/landingPage' },
       link: 'https://landingpagetemplate.netlify.app/#/',
       video: '',
     },
-    sixth: {
-      name: 'sixth',
+    fourth: {
+      name: 'fourth',
+      title: 'FixATable',
+      text:
+        'Responsive web app to book a table in cafes. Backend by Firebase. Differents users and cafe owner, manage availables tables in different cafes.',
+      chips: ['Vue', 'Vue-Router', 'Vuetify', 'Firebase'],
+      image: { url: 'statics/img/projects/fixatable' },
+      link: '',
+      video: '',
+    },
+    fifth: {
+      name: 'fifth',
+      title: 'Awesome ToDo',
+      text:
+        'Todo web and android single page app, backend by Firebase. <br/>Differents user, local storage for personnal settings.',
+      chips: ['Vue', 'Quasar', 'Firebase'],
+      image: { url: 'statics/img/projects/todoScreen' },
+      link: '',
+      video: 'statics/videos/todoApp.webm',
+    },
+    seventh: {
+      name: 'seventh',
       title: 'Meal App',
       text:
         'Cooking app made with VueJS and Vuetify framework, based on an API reached with axios. Backend by Firebase.',
+      chips: ['Vue', 'Vuetify', 'Firebase'],
       image: { url: 'statics/img/projects/mealScreen' },
       link: '',
       video: 'statics/videos/mealApp.webm',
     },
-    seventh: {
-      name: 'seventh',
-      title: 'Tribute to Elon Musk',
+    heigth: {
+      name: 'heigth',
+      title: 'Tribute',
       text: 'Experimentation with verticals containers and sliders.',
+      chips: ['HTML', 'CSS', 'Javascript'],
       image: { url: 'statics/img/projects/elonScreen' },
       link: 'https://breenbo.github.io/FCC_tribute/',
       video: 'statics/videos/elonTributeVideo.webm',
-    }, //fourth: {
-    //name: 'fifth',
-    //title: 'Vue-Gram',
-    //text:
-    //'Little chat made with Vue and Vuetify. Backend by Firebase. <br/> Different users.',
-    //image: '',
-    //link: '',
-    //video: ''
-    //},
+    },
   };
   //}}}
   //computed{{{1
@@ -269,6 +330,10 @@ export default class Carousel extends Vue {
   width: 95%;
   background-color: hsl(256, 38%, 80%);
 }
+.carousel-text-container {
+  height: 250px;
+}
+
 .imageContainerBig {
   height: 170%;
 }
